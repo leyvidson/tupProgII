@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj": {}
+    "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj": {}
   },
   "projects": {
-    "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj": {
+    "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj",
+        "projectUniqueName": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj",
         "projectName": "AplicacionCINE",
-        "projectPath": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj",
-        "packagesPath": "C:\\Users\\Leonel\\.nuget\\packages\\",
-        "outputPath": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\AplicacionCINE\\obj\\",
+        "projectPath": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj",
+        "packagesPath": "C:\\Users\\Casa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\AplicacionCINE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Leonel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Casa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,7 +51,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -60,25 +61,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj": {
+    "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj",
+        "projectUniqueName": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj",
         "projectName": "FrontEnd_CINE",
-        "projectPath": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj",
-        "packagesPath": "C:\\Users\\Leonel\\.nuget\\packages\\",
-        "outputPath": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\FrontEnd_CINE\\obj\\",
+        "projectPath": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj",
+        "packagesPath": "C:\\Users\\Casa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\FrontEnd_CINE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Leonel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Casa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -88,8 +89,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj": {
-                "projectPath": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj"
+              "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj": {
+                "projectPath": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj"
               }
             }
           }
@@ -109,7 +110,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -121,7 +123,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

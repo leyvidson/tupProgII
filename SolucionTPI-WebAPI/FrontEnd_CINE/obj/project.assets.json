@@ -18,10 +18,14 @@
           "System.Security.Principal.Windows": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/_._": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
+          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
@@ -77,10 +81,14 @@
           "runtime.native.System.Data.SqlClient.sni": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp2.1/System.Data.SqlClient.dll": {}
+          "ref/netcoreapp2.1/System.Data.SqlClient.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp2.1/System.Data.SqlClient.dll": {}
+          "lib/netcoreapp2.1/System.Data.SqlClient.dll": {
+            "related": ".xml"
+          }
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
@@ -100,10 +108,14 @@
           "System.Security.Principal.Windows": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/_._": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/System.Security.AccessControl.dll": {}
+          "lib/netstandard2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
         },
         "runtimeTargets": {
           "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
@@ -115,10 +127,14 @@
       "System.Security.Principal.Windows/4.7.0": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp3.0/_._": {}
+          "ref/netcoreapp3.0/_._": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {}
+          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
@@ -472,23 +488,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Leonel\\.nuget\\packages\\": {}
+    "C:\\Users\\Casa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj",
+      "projectUniqueName": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj",
       "projectName": "FrontEnd_CINE",
-      "projectPath": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj",
-      "packagesPath": "C:\\Users\\Leonel\\.nuget\\packages\\",
-      "outputPath": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\FrontEnd_CINE\\obj\\",
+      "projectPath": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\FrontEnd_CINE\\FrontEnd_CINE.csproj",
+      "packagesPath": "C:\\Users\\Casa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\FrontEnd_CINE\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Leonel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Casa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows7.0"
+        "net6.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -498,8 +514,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj": {
-              "projectPath": "C:\\Cosas del HDD\\TODO UTN\\Proyectos UTN\\1-PROGRAMACION\\WEB APIS\\ProgII-WepAPi-TP\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj"
+            "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj": {
+              "projectPath": "C:\\Users\\Casa\\Documents\\TUP\\ProgII\\tp\\SolucionTPI-WebAPI\\AplicacionCINE\\AplicacionCINE.csproj"
             }
           }
         }
@@ -519,7 +535,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -531,7 +548,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

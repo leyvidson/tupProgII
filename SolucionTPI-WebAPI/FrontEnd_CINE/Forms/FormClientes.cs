@@ -30,7 +30,7 @@ namespace FrontEnd_CINE.Forms
             oFabrica = new FabricaServicioImp();        //estas 2 lineas reemplazan a GESTOR
             oServicio = oFabrica.CrearServicio();
             cliente = new Cliente();
-            lClientes = new List<Cliente>();
+            lClientes = new List<Cliente>();            
         }
 
         private async void FormClientes_Load(object sender, EventArgs e)

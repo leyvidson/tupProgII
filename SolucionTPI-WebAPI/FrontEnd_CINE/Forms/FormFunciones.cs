@@ -21,25 +21,27 @@ namespace FrontEnd_CINE.Forms
         private IServicio oServicio;
         private FabricaServicio oFabrica;
 
-        
+
         List<Funcion> lFunciones;
-        
+
         public FormFunciones()
         {
             InitializeComponent();
 
             oFabrica = new FabricaServicioImp();    //Agregado nuevo
             oServicio = oFabrica.CrearServicio();   //estas 2 lineas reemplazan a GESTOR
-            lFunciones = new List<Funcion>();           
+            lFunciones = new List<Funcion>();
+            cargarDGV();
         }
-        
-        
+
+
 
         private async Task ConsultarFunciones()
         {
             string URL = "https://localhost:7295/api/CINE/Funciones";
+            
             var result = await ClientSingleton.GetInstance().GetAsync(URL);
-            var lFuncion = JsonConvert.DeserializeObject<List<Cliente>>(result);
+            var lFuncion = JsonConvert.DeserializeObject<List<Funcion>>(result);
 
             foreach (Funcion f in lFunciones)
             {
@@ -51,7 +53,6 @@ namespace FrontEnd_CINE.Forms
                      f.Precio,
                      f.Lenguaje,
                      f.Sala
-
                 });
             }
         }
@@ -60,7 +61,8 @@ namespace FrontEnd_CINE.Forms
         {
             this.Close();
         }
-        private void cargarDGV()
+
+        private void cargarDGV()  //Este no se esta usando
         {
             DataTable tabla = oServicio.ConsultarDB("SP_CONSULTAR_FUNCION");
             foreach (DataRow fila in tabla.Rows)
@@ -68,18 +70,17 @@ namespace FrontEnd_CINE.Forms
                 Funcion Func = new Funcion();
 
                 Func.Id_funcion = (int)(fila["id_funcion"]);
-                
+
                 Func.Pelicula = fila["Titulo"].ToString();          //<<<<<<<<< ahora Pelicula es STRING
-                //Func.pelicula.titulo = fila["Titulo"].ToString();  <<<<<<<<<<< antes habia relacion de agregacion
-                
+                                                                    //Func.pelicula.titulo = fila["Titulo"].ToString();  <<<<<<<<<<< antes habia relacion de agregacion
+
                 Func.Horario = (DateTime)fila["horario"];
                 Func.Precio = (decimal)fila["precio"];
-                
+
                 Func.Lenguaje = fila["lenguaje"].ToString();                 // idem
-                //Func.Lenguaje.Descripcion = fila["lenguaje"].ToString();   idem
-                
+                                                                             //Func.Lenguaje.Descripcion = fila["lenguaje"].ToString();   idem
+
                 Func.Sala = (int)fila["id_sala"];
-                
 
                 lFunciones.Add(Func);
             }
@@ -97,6 +98,6 @@ namespace FrontEnd_CINE.Forms
             await ConsultarFunciones();
         }
 
-      
+
     }
 }

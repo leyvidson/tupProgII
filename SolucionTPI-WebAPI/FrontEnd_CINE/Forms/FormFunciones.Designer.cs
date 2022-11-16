@@ -50,7 +50,7 @@
             this.panelContenedorFunciones.Location = new System.Drawing.Point(2, 1);
             this.panelContenedorFunciones.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelContenedorFunciones.Name = "panelContenedorFunciones";
-            this.panelContenedorFunciones.Size = new System.Drawing.Size(743, 516);
+            this.panelContenedorFunciones.Size = new System.Drawing.Size(802, 475);
             this.panelContenedorFunciones.TabIndex = 0;
             // 
             // lblCerrar

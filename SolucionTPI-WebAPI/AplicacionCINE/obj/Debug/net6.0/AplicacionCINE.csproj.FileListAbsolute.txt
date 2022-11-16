@@ -1,0 +1,12 @@
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\obj\Debug\net6.0\AplicacionCINE.csproj.AssemblyReference.cache
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\obj\Debug\net6.0\AplicacionCINE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\obj\Debug\net6.0\AplicacionCINE.AssemblyInfoInputs.cache
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\obj\Debug\net6.0\AplicacionCINE.AssemblyInfo.cs
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\obj\Debug\net6.0\AplicacionCINE.csproj.CoreCompileInputs.cache
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\bin\Debug\net6.0\AplicacionCINE.deps.json
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\bin\Debug\net6.0\AplicacionCINE.dll
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\bin\Debug\net6.0\AplicacionCINE.pdb
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\obj\Debug\net6.0\AplicacionCINE.dll
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\obj\Debug\net6.0\refint\AplicacionCINE.dll
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\obj\Debug\net6.0\AplicacionCINE.pdb
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\AplicacionCINE\obj\Debug\net6.0\ref\AplicacionCINE.dll

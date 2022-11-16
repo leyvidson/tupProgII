@@ -26,6 +26,34 @@ namespace AplicacionCINE.Datos
             return Instancia;
         }
 
+        public bool EliminarCliente(int id, string sql)
+        {
+            bool aux = false;
+
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+                aux = true;
+            }
+            catch
+            {
+                aux = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+            return aux;
+        }
+
         public DataTable ConsultarDB(string SP)
         {
             try
@@ -95,6 +123,8 @@ namespace AplicacionCINE.Datos
             return ok;
         }
 
+
+
         public bool EjecutarInsert(string SPMaestro, string SPDetalle, Reserva reserva)
         {
             bool ok = true;
@@ -105,9 +135,9 @@ namespace AplicacionCINE.Datos
                 T = cnn.BeginTransaction();
                 SqlCommand Cmd = new SqlCommand(SPMaestro, cnn, T);
                 Cmd.CommandType = CommandType.StoredProcedure;
-                Cmd.Parameters.AddWithValue("@id_funcion", reserva.Funcion.Id_funcion);
-                Cmd.Parameters.AddWithValue("@id_cliente", reserva.Cliente.Id_cliente);
-                Cmd.Parameters.AddWithValue("@id_pelicula", reserva.Pelicula/*.Id_pelicula*/); //proximo a resolver
+                Cmd.Parameters.AddWithValue("@id_funcion", reserva.FuncionIns.Id_funcion);
+                Cmd.Parameters.AddWithValue("@id_cliente", reserva.ClienteIns.Id_cliente);
+                Cmd.Parameters.AddWithValue("@id_pelicula", reserva.PeliculaIns.Id_pelicula); //proximo a resolver
                 Cmd.Parameters.AddWithValue("@fecha", reserva.FechaReserva);
                 Cmd.Parameters.AddWithValue("@cantidad", reserva.Cantidad);
 
@@ -157,14 +187,14 @@ namespace AplicacionCINE.Datos
                 SqlCommand Cmd = new SqlCommand("SP_NUEVA_PELICULA", cnn);
                 cnn.Open();
                 Cmd.CommandType = CommandType.StoredProcedure;
-                Cmd.Parameters.AddWithValue("@id_genero", pelicula.Genero.Id_genero);
-                Cmd.Parameters.AddWithValue("@id_calificacion", pelicula.Calificacion.Id_calificacion);
+                Cmd.Parameters.AddWithValue("@id_genero", pelicula.GeneroInst.Id_genero);
+                Cmd.Parameters.AddWithValue("@id_calificacion", pelicula.CalificacionInst.Id_calificacion);
                 Cmd.Parameters.AddWithValue("@duracion", pelicula.Duracion);
                 Cmd.Parameters.AddWithValue("@subtitulos", pelicula.Subtitulo);
                 Cmd.Parameters.AddWithValue("@fecha_de_estreno", pelicula.Fecha_estreno);
                 Cmd.Parameters.AddWithValue("@apto_para_todo_publico", pelicula.Apto_toto_publico);
-                Cmd.Parameters.AddWithValue("@id_actor", pelicula.Actor_principal.Id_actor_principal);
-                Cmd.Parameters.AddWithValue("@id_origen", pelicula.Origen.Id_origen);
+                Cmd.Parameters.AddWithValue("@id_actor", pelicula.Actor_principalInst.Id_actor_principal);
+                Cmd.Parameters.AddWithValue("@id_origen", pelicula.OrigenInst.Id_origen);
                 Cmd.Parameters.AddWithValue("@sinopsis", pelicula.Sinopsis);
                 Cmd.Parameters.AddWithValue("@titulo", pelicula.Titulo);
 

@@ -11,6 +11,8 @@ using AplicacionCINE.Datos;
 using AplicacionCINE.Entidades;
 using AplicacionCINE.Servicios;
 using AplicacionCINE.Servicios.Interfaz;
+using FrontEnd_CINE.Http;
+using Newtonsoft.Json;
 
 namespace FrontEnd_CINE.Forms
 {
@@ -18,16 +20,16 @@ namespace FrontEnd_CINE.Forms
     {
         private IServicio oServicio;
         private FabricaServicio oFabrica;
-       
+
         List<Pelicula> lPeliculas;
 
         public FormPelicula()
         {
             InitializeComponent();
-            
+
             oFabrica = new FabricaServicioImp();    //Agregado nuevo
             oServicio = oFabrica.CrearServicio();   //estas 2 lineas reemplazan a GESTOR
-            
+
             lPeliculas = new List<Pelicula>();
             cargarDGV();
         }
@@ -36,9 +38,32 @@ namespace FrontEnd_CINE.Forms
         {
             this.Close();
         }
-        
-        private void Pelicula_Load(object sender, EventArgs e)
+
+        private async void Pelicula_Load(object sender, EventArgs e)
         {
+            await ConsultarPeliculas();
+        }
+
+        private async Task ConsultarPeliculas()
+        {
+            string URL = "https://localhost:7295/api/CINE/Peliculas";
+            var result = await ClientSingleton.GetInstance().GetAsync(URL);
+            var lPelicula = JsonConvert.DeserializeObject<List<Pelicula>>(result);
+
+            foreach (Pelicula p in lPelicula)
+            {
+                dgvPeliculas.Rows.Add(new object[]
+                {
+                        p.Id_pelicula,
+                        p.Titulo,
+                        p.Duracion,
+                        p.calificacion,
+                        p.Apto_toto_publico,
+                        p.Subtitulo,
+                        p.Fecha_estreno,
+                        p.genero
+                });
+            }
             
         }
 
@@ -53,16 +78,16 @@ namespace FrontEnd_CINE.Forms
                 Peli.Id_pelicula = (int)(fila["id_pelicula"]);
                 Peli.Titulo = fila["titulo"].ToString();
                 Peli.Duracion = (decimal)fila["duracion"];
-                
+
                 Peli.calificacion = (string)fila["calificacion"];
                 //Peli.calificacion.Descripcion = fila["calificacion"].ToString();                
-                
+
                 Peli.Apto_toto_publico = Convert.ToBoolean(fila["apto_para_todo_publico"]);
                 Peli.Subtitulo = Convert.ToBoolean(fila["subtitulos"]);
                 Peli.Fecha_estreno = Convert.ToDateTime(fila["fecha_de_estreno"]);
-                
+
                 Peli.genero = (string)fila["genero"];
-               //Peli.genero.Descripcion = fila["genero"].ToString();
+                //Peli.genero.Descripcion = fila["genero"].ToString();
 
                 lPeliculas.Add(Peli);
             }
@@ -87,7 +112,7 @@ namespace FrontEnd_CINE.Forms
             this.panelContenedorPeliculas.Tag = fh;
             fh.Show();
 
-        }    
+        }
 
         private void btnNueva_Click(object sender, EventArgs e)
         {
@@ -97,7 +122,7 @@ namespace FrontEnd_CINE.Forms
 
         private void panelContenedorPeliculas_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void dgvPeliculas_CellContentClick(object sender, DataGridViewCellEventArgs e)

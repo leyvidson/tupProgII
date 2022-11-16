@@ -23,13 +23,14 @@ namespace FrontEnd_CINE.Forms
 
 
         List<Reserva> lReservas;
+        
         public FormReservas()
         {
             InitializeComponent();
             oFabrica = new FabricaServicioImp();    //Agregado nuevo
             oServicio = oFabrica.CrearServicio();   //estas 2 lineas reemplazan a GESTOR                  
             lReservas = new List<Reserva>();
-            //cargarDGV();
+            cargarDGV();
         }
 
         private async void FormReservas_Load(object sender, EventArgs e)
@@ -37,16 +38,14 @@ namespace FrontEnd_CINE.Forms
             await ConsultarReservas();
         }
 
-
         private async Task ConsultarReservas()
         {
-            string URL = "https://localhost:7295/api/CINE";
-
+            string URL = "https://localhost:7295/api/CINE/Reservas";
+        
             var result = await ClientSingleton.GetInstance().GetAsync(URL);
-            List<Reserva> lReserva = new List<Reserva>();
-            lReserva = JsonConvert.DeserializeObject<List<Reserva>>(result);
-            
-            foreach (Reserva r in lReserva)
+            var lReserva = JsonConvert.DeserializeObject<List<Reserva>>(result);
+
+            foreach (Reserva r in lReservas)
             {
                 dgvReserva.Rows.Add(new object[]
                 {

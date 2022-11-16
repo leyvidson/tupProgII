@@ -17,12 +17,14 @@ namespace CINE_WebApi.Controllers
             app = new ReservasDAO(); ////////   Agrego LEO
             
         }
-       
+
         [HttpGet("Reservas")]
         public IActionResult GetReservas()
         {
             return Ok(app.ConsultarReservas());
         }
+       
+       
 
         [HttpGet("Funciones")]
         public IActionResult GetFunciones()
@@ -72,6 +74,11 @@ namespace CINE_WebApi.Controllers
             }
         }
 
+        [HttpGet("Peliculas")]
+        public IActionResult GetPeliculas()
+        {
+            return Ok(app.ConsultarPeliculas());
+        }
      
         [HttpDelete("DeleteCliente/{id}")]
         public IActionResult DeleteCliente(int id)

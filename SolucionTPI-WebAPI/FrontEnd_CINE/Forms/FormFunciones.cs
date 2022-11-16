@@ -34,7 +34,10 @@ namespace FrontEnd_CINE.Forms
             cargarDGV();
         }
 
-
+        private async void FormFunciones_Load(object sender, EventArgs e)
+        {           
+            await ConsultarFunciones();
+        }
 
         private async Task ConsultarFunciones()
         {
@@ -92,11 +95,7 @@ namespace FrontEnd_CINE.Forms
             }
         }
 
-        private async void FormFunciones_Load(object sender, EventArgs e)
-        {
-            //cargarDGV();
-            await ConsultarFunciones();
-        }
+      
 
 
     }

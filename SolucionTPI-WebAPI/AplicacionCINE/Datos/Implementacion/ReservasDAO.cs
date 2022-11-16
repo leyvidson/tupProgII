@@ -16,7 +16,6 @@ namespace AplicacionCINE.Datos
             return HelperSingleton.ObtenerInstancia().EjecutarInsert("SP_NvaRESERVA","SP_NvoDETALLE", reserva);
         }
 
-
         public bool EjecutarInsertPeliculas(Pelicula pelicula)
         {
             return HelperSingleton.ObtenerInstancia().EjecutarInsert(pelicula); //////////////////
@@ -27,7 +26,6 @@ namespace AplicacionCINE.Datos
             return HelperSingleton.ObtenerInstancia().EjecutarInsert(cliente); ////////////////////
         }
         
-
         public List<Cliente> ConsultarClientes()
         {
             List<Cliente> Lcliente = new List<Cliente>();
@@ -73,7 +71,7 @@ namespace AplicacionCINE.Datos
 
                 r.Id_reserva = Convert.ToInt32(fila["id_reserva"]);
                 r.id_Funcion = Convert.ToInt32(fila["id_funcion"]);
-                r.cliente = fila["Cliente"].ToString();
+                r.cliente = fila["cliente"].ToString();
                 r.pelicula = fila["titulo"].ToString();
                 r.FechaReserva = Convert.ToDateTime(fila["fecha"]);
                 r.Cantidad = Convert.ToInt32(fila["cantidad"]);
@@ -84,23 +82,40 @@ namespace AplicacionCINE.Datos
 
         public List<Pelicula> ConsultarPeliculas()
         {
-            throw new NotImplementedException();
+            List<Pelicula> lPeliculas = new List<Pelicula>();
+            DataTable tabla = HelperSingleton.ObtenerInstancia().ConsultarDB("SP_CONSULTAR_PELICULA");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Pelicula p = new Pelicula();
+
+                p.Id_pelicula = Convert.ToInt32(fila["id_pelicula"]);
+                p.Titulo = fila["titulo"].ToString();
+                p.Duracion = Convert.ToDecimal(fila["duracion"]);
+                p.calificacion = fila["calificacion"].ToString();
+                p.Apto_toto_publico = Convert.ToBoolean(fila["apto_para_todo_publico"]);
+                p.Subtitulo = Convert.ToBoolean(fila["subtitulos"]);
+                p.Fecha_estreno = Convert.ToDateTime(fila["fecha_de_estreno"]);
+                p.genero = fila["genero"].ToString();
+                lPeliculas.Add(p);
+            }
+            return lPeliculas;
         }
 
-        public List<Reserva> ConsultarReservaXFecha(DateTime desde, DateTime hasta)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public bool EliminarCliente(int id)
         {
-            throw new NotImplementedException();
+            return HelperSingleton.ObtenerInstancia().EliminarCliente(id, "SP_OCULTAR_CLIENTE");
         }
      
 
         public DataTable ConsultarDB(string SP)
         {
             return HelperSingleton.ObtenerInstancia().ConsultarDB(SP);
+        }
+
+        public List<Reserva> ConsultarReservaXFecha(DateTime desde, DateTime hasta)
+        {
+            throw new NotImplementedException();
         }
     }
 }

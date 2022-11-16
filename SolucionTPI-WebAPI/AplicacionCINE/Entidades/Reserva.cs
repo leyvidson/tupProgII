@@ -16,30 +16,35 @@ namespace AplicacionCINE.Entidades
         public DateTime FechaReserva { get; set; }
         public int Cantidad { get; set; }
         
-        public Funcion Funcion { get; set; }
-        public Cliente Cliente { get; set; }
-        public Pelicula Pelicula { get; set; }           // estos atributos son para insert
+        public Funcion FuncionIns { get; set; }
+        public Cliente ClienteIns { get; set; }
+        public Pelicula PeliculaIns { get; set; }           // estos atributos son para insert
         
         public List<Detalle_Reservas> Ldetalle;
 
         public Reserva()
         {
-            Ldetalle = new List<Detalle_Reservas>();
-            Id_reserva = 0;
-            Funcion = null;
-            Cliente = null;
-            Pelicula = null;
-            FechaReserva = DateTime.Now;
-            Cantidad = 0;
+
         }
-        
-        
+
+        //public Reserva()
+        //{
+        //    Ldetalle = new List<Detalle_Reservas>();
+        //    Id_reserva = 0;
+        //    FuncionIns = null;
+        //    ClienteIns = null;
+        //    PeliculaIns = null;
+        //    FechaReserva = DateTime.Now;
+        //    Cantidad = 0;
+        //}
+
+
         public Reserva(int id_reserva, Funcion funcion, Cliente cliente, Pelicula pelicula, DateTime fechaReserva, int cantidad)
         {
             Id_reserva = id_reserva;
-            Funcion = funcion;
-            Cliente = cliente;
-            Pelicula = pelicula;
+            FuncionIns = funcion;
+            ClienteIns = cliente;
+            PeliculaIns = pelicula;
             FechaReserva = fechaReserva;
             Cantidad = cantidad;
         }

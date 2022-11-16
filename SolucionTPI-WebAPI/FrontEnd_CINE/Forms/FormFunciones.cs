@@ -2,6 +2,8 @@
 using AplicacionCINE.Entidades;
 using AplicacionCINE.Servicios;
 using AplicacionCINE.Servicios.Interfaz;
+using FrontEnd_CINE.Http;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,16 +21,39 @@ namespace FrontEnd_CINE.Forms
         private IServicio oServicio;
         private FabricaServicio oFabrica;
 
+        
         List<Funcion> lFunciones;
+        
         public FormFunciones()
         {
             InitializeComponent();
 
             oFabrica = new FabricaServicioImp();    //Agregado nuevo
             oServicio = oFabrica.CrearServicio();   //estas 2 lineas reemplazan a GESTOR
+            lFunciones = new List<Funcion>();           
+        }
+        
+        
 
-            lFunciones = new List<Funcion>();
-            cargarDGV();
+        private async Task ConsultarFunciones()
+        {
+            string URL = "https://localhost:7295/api/CINE/Funciones";
+            var result = await ClientSingleton.GetInstance().GetAsync(URL);
+            var lFuncion = JsonConvert.DeserializeObject<List<Cliente>>(result);
+
+            foreach (Funcion f in lFunciones)
+            {
+                dgvFunciones.Rows.Add(new object[]
+                {
+                     f.Id_funcion,
+                     f.Pelicula,
+                     f.Horario,
+                     f.Precio,
+                     f.Lenguaje,
+                     f.Sala
+
+                });
+            }
         }
 
         private void lblCerrar_Click(object sender, EventArgs e)
@@ -53,7 +78,7 @@ namespace FrontEnd_CINE.Forms
                 Func.Lenguaje = fila["lenguaje"].ToString();                 // idem
                 //Func.Lenguaje.Descripcion = fila["lenguaje"].ToString();   idem
                 
-                Func.Id_sala = (int)fila["id_sala"];
+                Func.Sala = (int)fila["id_sala"];
                 
 
                 lFunciones.Add(Func);
@@ -62,8 +87,16 @@ namespace FrontEnd_CINE.Forms
             foreach (Funcion Func in lFunciones)
             {
                 dgvFunciones.Rows.Add(new object[] { Func.Id_funcion,Func.Pelicula, Func.Horario,
-                                                Func.Precio, Func.Lenguaje, Func.Id_sala});
+                                                Func.Precio, Func.Lenguaje, Func.Sala});
             }
         }
+
+        private async void FormFunciones_Load(object sender, EventArgs e)
+        {
+            //cargarDGV();
+            await ConsultarFunciones();
+        }
+
+      
     }
 }

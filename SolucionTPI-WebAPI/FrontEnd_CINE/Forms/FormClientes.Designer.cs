@@ -47,9 +47,10 @@
             this.panelContenedorClientes.Controls.Add(this.lblCerrarClientes);
             this.panelContenedorClientes.Controls.Add(this.lblClientes);
             this.panelContenedorClientes.Controls.Add(this.dgvClientes);
-            this.panelContenedorClientes.Location = new System.Drawing.Point(3, 1);
+            this.panelContenedorClientes.Location = new System.Drawing.Point(4, 1);
+            this.panelContenedorClientes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelContenedorClientes.Name = "panelContenedorClientes";
-            this.panelContenedorClientes.Size = new System.Drawing.Size(682, 447);
+            this.panelContenedorClientes.Size = new System.Drawing.Size(796, 516);
             this.panelContenedorClientes.TabIndex = 0;
             // 
             // btnNuevoCliente
@@ -58,10 +59,11 @@
             this.btnNuevoCliente.FlatAppearance.BorderSize = 0;
             this.btnNuevoCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoCliente.Location = new System.Drawing.Point(0, 298);
+            this.btnNuevoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNuevoCliente.Location = new System.Drawing.Point(0, 344);
+            this.btnNuevoCliente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Size = new System.Drawing.Size(126, 42);
+            this.btnNuevoCliente.Size = new System.Drawing.Size(147, 48);
             this.btnNuevoCliente.TabIndex = 3;
             this.btnNuevoCliente.Text = "Nuevo";
             this.btnNuevoCliente.UseVisualStyleBackColor = true;
@@ -70,8 +72,9 @@
             // lblCerrarClientes
             // 
             this.lblCerrarClientes.AutoSize = true;
-            this.lblCerrarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCerrarClientes.Location = new System.Drawing.Point(654, 9);
+            this.lblCerrarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCerrarClientes.Location = new System.Drawing.Point(763, 10);
+            this.lblCerrarClientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCerrarClientes.Name = "lblCerrarClientes";
             this.lblCerrarClientes.Size = new System.Drawing.Size(22, 22);
             this.lblCerrarClientes.TabIndex = 2;
@@ -81,8 +84,9 @@
             // lblClientes
             // 
             this.lblClientes.AutoSize = true;
-            this.lblClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientes.Location = new System.Drawing.Point(281, 20);
+            this.lblClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblClientes.Location = new System.Drawing.Point(328, 23);
+            this.lblClientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblClientes.Name = "lblClientes";
             this.lblClientes.Size = new System.Drawing.Size(75, 22);
             this.lblClientes.TabIndex = 1;
@@ -96,9 +100,10 @@
             this.nombre_cliente,
             this.apellido_cliente,
             this.fec_nac_cliente});
-            this.dgvClientes.Location = new System.Drawing.Point(0, 45);
+            this.dgvClientes.Location = new System.Drawing.Point(0, 52);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.Size = new System.Drawing.Size(625, 247);
+            this.dgvClientes.Size = new System.Drawing.Size(729, 285);
             this.dgvClientes.TabIndex = 0;
             // 
             // id_cliente
@@ -127,13 +132,15 @@
             // 
             // FormClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 451);
+            this.ClientSize = new System.Drawing.Size(850, 520);
             this.Controls.Add(this.panelContenedorClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormClientes";
             this.Text = "Clientes";
+            this.Load += new System.EventHandler(this.FormClientes_Load);
             this.panelContenedorClientes.ResumeLayout(false);
             this.panelContenedorClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();

@@ -13,12 +13,12 @@ namespace AplicacionCINE.Entidades
         public DateTime Horario { get; set; }
         public decimal Precio { get; set; }
         public string Lenguaje { get; set; }     //<<<<<<<<<<<<<
-        public int Id_sala { get; set; }         //<<<<<<<<<<<<<
+        public int Sala { get; set; }         //<<<<<<<<<<<<<
         
         
-        //public Pelicula Pelicula { get; set; }
-        //public Lenguaje Lenguaje { get; set; }   
-        //public Sala Id_sala { get; set; }
+        //public Pelicula pelicula { get; set; }
+        //public Lenguaje enguaje { get; set; }   
+        //public Sala sala { get; set; }
 
 
         public Funcion(int id, string pelicula, DateTime horario, decimal precio,
@@ -29,7 +29,7 @@ namespace AplicacionCINE.Entidades
             Horario = horario;
             Precio = precio;
             Lenguaje = lenguaje;
-            Id_sala = sala;
+            Sala = sala;
         }
 
         public Funcion()

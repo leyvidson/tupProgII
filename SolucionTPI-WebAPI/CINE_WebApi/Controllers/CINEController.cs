@@ -1,5 +1,5 @@
-﻿using AplicacionCINE.Servicios;
-using AplicacionCINE.Servicios.Interfaz;
+﻿using AplicacionCINE.Datos;
+using AplicacionCINE.Entidades;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,55 +10,82 @@ namespace CINE_WebApi.Controllers
     [ApiController]
     public class CINEController : ControllerBase
     {
-        private IServicio oServicio;
-        private FabricaServicio oFabrica;
+        private IReservas app; /// Agrego LEO
 
         public CINEController()
         {
-            oFabrica = new FabricaServicioImp();        //estas 2 lineas reemplazan a GESTOR
-            oServicio = oFabrica.CrearServicio();
-        }
-
-        // GET: api/<CINEController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<CINEController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        //GEt Clientes
-        [HttpGet("/clientes")]
-        public IActionResult ObtenerClientes()
-        {
-            return Ok(oServicio.ConsultarDB("SP_CONSULTAR_CLIENTE"));
-        }
-
-        // POST api/<CINEController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
+            app = new ReservasDAO(); ////////   Agrego LEO
             
         }
-
-        // PUT api/<CINEController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+       
+        [HttpGet("Reservas")]
+        public IActionResult GetReservas()
         {
-
+            return Ok(app.ConsultarReservas());
         }
 
-        // DELETE api/<CINEController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpGet("Funciones")]
+        public IActionResult GetFunciones()
         {
+            return Ok(app.ConsultarFunciones());
+        }
 
+        [HttpGet("Clientes")]
+        public IActionResult GetClientes()
+        {
+            return Ok(app.ConsultarClientes());
+        }
+
+        [HttpPost("NuevaReserva")]
+        public IActionResult PostClientes(Reserva reserva)
+        {
+            try
+            {
+                if (reserva != null)
+                {
+                    return Ok(app.EjecutarInsertReserva(reserva));
+                }
+
+                return BadRequest("Datos de la reserva incorrectos!");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno! Intente luego");
+            }
+        }
+
+        [HttpPost("NuevoCliente")]
+        public IActionResult PostClientes(Cliente cliente)
+        {
+            try
+            {
+                if (cliente != null)
+                {
+                    return Ok(app.EjecutarInsertClientes(cliente));
+                }
+                
+                return BadRequest("Datos del cliente incorrectos!");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno! Intente luego");
+            }
+        }
+
+     
+        [HttpDelete("DeleteCliente/{id}")]
+        public IActionResult DeleteCliente(int id)
+        {
+            if (id != 0)
+            {
+                bool result = app.EliminarCliente(id);
+                return Ok(result);
+
+            }
+            else
+            {
+                return BadRequest("Debe ingresar un cliente válido");
+            }
         }
     }
 }

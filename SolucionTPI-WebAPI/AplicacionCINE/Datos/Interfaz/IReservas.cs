@@ -3,13 +3,29 @@ using System.Data;
 
 namespace AplicacionCINE.Datos
 {
-    internal interface IReservas
-    {       
-        bool EjecutarInsert(Reserva reserva);
+    public interface IReservas
+    {
         DataTable ConsultarDB(string SP);
-        bool EjecutarInsert(Cliente cliente);
-        bool EjecutarInsert(Pelicula pelicula);
-        DataTable ConsultaDBVista(string vista);
+
+        List<Cliente> ConsultarClientes();
+        
+        List<Funcion> ConsultarFunciones();
+        
+        List<Reserva> ConsultarReservas();
+        
+        List<Pelicula> ConsultarPeliculas();
+
+        List<Reserva> ConsultarReservaXFecha(DateTime desde, DateTime hasta); //Falta implementar
+        
+        bool EjecutarInsertReserva(Reserva reserva);
+
+        bool EliminarCliente(int id);
+        
+        bool EjecutarInsertClientes(Cliente cliente);
+        
+        bool EjecutarInsertPeliculas(Pelicula pelicula);
+        
+
 
 
     }

@@ -18,11 +18,7 @@ namespace AplicacionCINE.Servicios.Implementacion
         {
             oDao = new ReservasDAO();
         }
-
-        public DataTable ConsultaDBVista(string vista)
-        {
-            return oDao.ConsultaDBVista(vista);
-        }
+    
 
         public DataTable ConsultarDB(string SP)
         {
@@ -37,17 +33,17 @@ namespace AplicacionCINE.Servicios.Implementacion
 
         public bool EjecutarInsert(Pelicula pelicula)
         {
-            return oDao.EjecutarInsert(pelicula);
+            return oDao.EjecutarInsertPeliculas(pelicula);
         }
 
         public bool EjecutarInsert(Cliente cliente)
         {
-            return oDao.EjecutarInsert(cliente);
+            return oDao.EjecutarInsertClientes(cliente);
         }
 
         public bool EjecutarInsert(Reserva reserva)
         {
-            return oDao.EjecutarInsert(reserva);
+            return oDao.EjecutarInsertReserva(reserva);
         }
     }
 }

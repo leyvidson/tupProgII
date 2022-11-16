@@ -1,4 +1,4 @@
-﻿//using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace FrontEnd_CINE.Http
             return content;
         }
 
-        public async Task<string> GetAsync(string url,string data)
+        public async Task<string> GetAsyncParam(string url, string data)
         {
             var result = await client.GetAsync(url);
             var content = "";
@@ -45,7 +45,7 @@ namespace FrontEnd_CINE.Http
             return content;
         }
 
-        public async Task<string> PostAsync(string url, string data)
+        public async Task<string> PostAsync(string url, string data)         
         {
             StringContent content = new StringContent(data, Encoding.UTF8,
             "application/json");
@@ -55,8 +55,26 @@ namespace FrontEnd_CINE.Http
                 response = await result.Content.ReadAsStringAsync();
             return response;
         }
+        
+        public async Task<string> UpdateAsync(string url, string data)
+        {
+            StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
+            var result = await client.PutAsync(url, content);
+            var response = "";
+            if (result.IsSuccessStatusCode)
+                response = await result.Content.ReadAsStringAsync();
+            return response;
+        }
+        
+        public async Task<string> DeleteAsync(string url)
+        {
+            var result = await client.DeleteAsync(url);
+            var content = "";
+            if (result.IsSuccessStatusCode)
+                content = await result.Content.ReadAsStringAsync();
+            return content;
+        }
 
-       
 
 
 

@@ -48,15 +48,17 @@
             this.panelContenedorFunciones.Controls.Add(this.dgvFunciones);
             this.panelContenedorFunciones.Controls.Add(this.lblFunciones);
             this.panelContenedorFunciones.Location = new System.Drawing.Point(2, 1);
+            this.panelContenedorFunciones.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelContenedorFunciones.Name = "panelContenedorFunciones";
-            this.panelContenedorFunciones.Size = new System.Drawing.Size(686, 447);
+            this.panelContenedorFunciones.Size = new System.Drawing.Size(743, 516);
             this.panelContenedorFunciones.TabIndex = 0;
             // 
             // lblCerrar
             // 
             this.lblCerrar.AutoSize = true;
-            this.lblCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCerrar.Location = new System.Drawing.Point(663, 0);
+            this.lblCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCerrar.Location = new System.Drawing.Point(774, 0);
+            this.lblCerrar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCerrar.Name = "lblCerrar";
             this.lblCerrar.Size = new System.Drawing.Size(22, 22);
             this.lblCerrar.TabIndex = 2;
@@ -73,9 +75,10 @@
             this.precio,
             this.id_lenguaje,
             this.id_sala});
-            this.dgvFunciones.Location = new System.Drawing.Point(4, 60);
+            this.dgvFunciones.Location = new System.Drawing.Point(5, 69);
+            this.dgvFunciones.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvFunciones.Name = "dgvFunciones";
-            this.dgvFunciones.Size = new System.Drawing.Size(681, 301);
+            this.dgvFunciones.Size = new System.Drawing.Size(794, 347);
             this.dgvFunciones.TabIndex = 1;
             // 
             // id_funcion
@@ -112,8 +115,9 @@
             // lblFunciones
             // 
             this.lblFunciones.AutoSize = true;
-            this.lblFunciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFunciones.Location = new System.Drawing.Point(288, 20);
+            this.lblFunciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFunciones.Location = new System.Drawing.Point(336, 23);
+            this.lblFunciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFunciones.Name = "lblFunciones";
             this.lblFunciones.Size = new System.Drawing.Size(93, 22);
             this.lblFunciones.TabIndex = 0;
@@ -121,13 +125,15 @@
             // 
             // FormFunciones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 451);
+            this.ClientSize = new System.Drawing.Size(803, 520);
             this.Controls.Add(this.panelContenedorFunciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormFunciones";
             this.Text = "FormFunciones";
+            this.Load += new System.EventHandler(this.FormFunciones_Load);
             this.panelContenedorFunciones.ResumeLayout(false);
             this.panelContenedorFunciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFunciones)).EndInit();

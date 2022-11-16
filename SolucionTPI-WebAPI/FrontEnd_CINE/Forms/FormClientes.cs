@@ -18,58 +18,64 @@ namespace FrontEnd_CINE.Forms
     public partial class FormClientes : Form
     {
         private IServicio oServicio;
-        private FabricaServicio oFabrica;        
-        
+        private FabricaServicio oFabrica;
+
+        private Cliente cliente;
         List<Cliente> lClientes;
 
         public FormClientes()
         {
             InitializeComponent();
-            
-            oFabrica = new FabricaServicioImp();        //estas 2 lineas reemplazan a GESTOR
-            oServicio = oFabrica.CrearServicio();       //            
-            lClientes = new List<Cliente>();
-            AgregarClientes();
 
+            oFabrica = new FabricaServicioImp();        //estas 2 lineas reemplazan a GESTOR
+            oServicio = oFabrica.CrearServicio();
+            cliente = new Cliente();
+            lClientes = new List<Cliente>();
+        }
+
+        private async void FormClientes_Load(object sender, EventArgs e)
+        {
+            await ObtenerClientes();
         }
 
         private async Task ObtenerClientes()
         {
-            string URL = "https://localhost:7295/Cliente";
+            string URL = "https://localhost:7295/api/CINE/Clientes";
+
             var result = await ClientSingleton.GetInstance().GetAsync(URL);
-            var lstClientes = JsonConvert.DeserializeObject<List<Cliente>>(result);
-            foreach (Cliente cliente in lstClientes)
+            var lClientes = JsonConvert.DeserializeObject<List<Cliente>>(result);
+
+            foreach (Cliente cliente in lClientes)
             {
                 dgvClientes.Rows.Add(new object[]
                 {
-                    cliente.Id_cliente,
-                    cliente.Nombre,
-                    cliente.Apellido,
-                    cliente.Fecha_nacimiento
+                        cliente.Id_cliente,
+                        cliente.Nombre,
+                        cliente.Apellido,
+                        cliente.Fecha_nacimiento
                 });
             }
         }
 
 
-        private void AgregarClientes()
+        private void AgregarClientes() // Este no se esta usando ahora!...... LEO
         {
             DataTable tabla = oServicio.ConsultarDB("SP_CONSULTAR_CLIENTES");
             foreach (DataRow fila in tabla.Rows)
             {
-                Cliente cl = new Cliente();                
+                Cliente cl = new Cliente();
 
                 cl.Id_cliente = (int)(fila["id_cliente"]);
                 cl.Nombre = fila["nombre"].ToString();
-                cl.Apellido = fila["apellido"].ToString(); 
+                cl.Apellido = fila["apellido"].ToString();
                 cl.Fecha_nacimiento = Convert.ToDateTime(fila["fec_nac"]);
-                
 
                 lClientes.Add(cl);
             }
             dgvClientes.Rows.Clear();
             foreach (Cliente cl in lClientes)
             {
-                dgvClientes.Rows.Add(new object[] { cl.Id_cliente, cl.Nombre, cl.Apellido,cl.Fecha_nacimiento});
+                dgvClientes.Rows.Add(new object[] { cl.Id_cliente, cl.Nombre, cl.Apellido, cl.Fecha_nacimiento });
             }
         }
 
@@ -99,5 +105,7 @@ namespace FrontEnd_CINE.Forms
             btnNuevoCliente.Visible = false;
             AbrirFormInPanel(new NuevoCliente());
         }
+
+
     }
 }

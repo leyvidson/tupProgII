@@ -1,8 +1,9 @@
-﻿using AplicacionCINE.Datos;
-using AplicacionCINE.Entidades;
+﻿using AplicacionCINE.Entidades;
 //using FrontEnd_CINE.Reportes;
 using AplicacionCINE.Servicios;
 using AplicacionCINE.Servicios.Interfaz;
+using FrontEnd_CINE.Http;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,16 +21,43 @@ namespace FrontEnd_CINE.Forms
         private IServicio oServicio;
         private FabricaServicio oFabrica;
 
+
         List<Reserva> lReservas;
         public FormReservas()
         {
             InitializeComponent();
-
             oFabrica = new FabricaServicioImp();    //Agregado nuevo
-            oServicio = oFabrica.CrearServicio();   //estas 2 lineas reemplazan a GESTOR
-
+            oServicio = oFabrica.CrearServicio();   //estas 2 lineas reemplazan a GESTOR                  
             lReservas = new List<Reserva>();
-            cargarDGV();
+            //cargarDGV();
+        }
+
+        private async void FormReservas_Load(object sender, EventArgs e)
+        {
+            await ConsultarReservas();
+        }
+
+
+        private async Task ConsultarReservas()
+        {
+            string URL = "https://localhost:7295/api/CINE";
+
+            var result = await ClientSingleton.GetInstance().GetAsync(URL);
+            List<Reserva> lReserva = new List<Reserva>();
+            lReserva = JsonConvert.DeserializeObject<List<Reserva>>(result);
+            
+            foreach (Reserva r in lReserva)
+            {
+                dgvReserva.Rows.Add(new object[]
+                {
+                        r.Id_reserva,
+                        r.id_Funcion,
+                        r.cliente,
+                        r.pelicula,
+                        r.FechaReserva,
+                        r.Cantidad
+                });
+            }
         }
 
         private void lblCerrar_Click_Click(object sender, EventArgs e)
@@ -105,11 +133,13 @@ namespace FrontEnd_CINE.Forms
                 //mostrar.Id_ticket = dgvReserva.CurrentCell.ColumnIndex;
 
                 //mostrar.ShowDialog();
-                
+
                 //este id se lo tengo q enviar al FormReporte                
 
             }
         }
+
+       
 
     }
 }

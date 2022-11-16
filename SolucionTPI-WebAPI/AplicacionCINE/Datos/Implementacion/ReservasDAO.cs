@@ -65,7 +65,21 @@ namespace AplicacionCINE.Datos
 
         public List<Reserva> ConsultarReservas()
         {
-            throw new NotImplementedException();
+            List<Reserva> lReserva = new List<Reserva>();
+            DataTable tabla = HelperSingleton.ObtenerInstancia().ConsultarDB("SP_CONSULTAR_RESERVA");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Reserva r = new Reserva();
+
+                r.Id_reserva = Convert.ToInt32(fila["id_reserva"]);
+                r.id_Funcion = Convert.ToInt32(fila["id_funcion"]);
+                r.cliente = fila["Cliente"].ToString();
+                r.pelicula = fila["titulo"].ToString();
+                r.FechaReserva = Convert.ToDateTime(fila["fecha"]);
+                r.Cantidad = Convert.ToInt32(fila["cantidad"]);
+                lReserva.Add(r);
+            }
+            return lReserva;
         }
 
         public List<Pelicula> ConsultarPeliculas()

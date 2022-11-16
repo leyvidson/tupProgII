@@ -13,12 +13,12 @@ namespace AplicacionCINE.Entidades
         public string cliente { get; set; }        //<<<<<<<<<<<<<<<<<<  Para consultas
         public string pelicula { get; set; }      //<<<<<<<<<<<<<<<<<<< 
         
+        public DateTime FechaReserva { get; set; }
+        public int Cantidad { get; set; }
         
         public Funcion Funcion { get; set; }
         public Cliente Cliente { get; set; }
         public Pelicula Pelicula { get; set; }           // estos atributos son para insert
-        public DateTime FechaReserva { get; set; }
-        public int Cantidad { get; set; }
         
         public List<Detalle_Reservas> Ldetalle;
 

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data.Sql;
-using System.Data;
+﻿using System.Data;
 using AplicacionCINE.Entidades;
 using System.Data.SqlClient;
 
@@ -93,7 +91,6 @@ namespace AplicacionCINE.Datos
             }
         }
 
-
         public bool EjecutarInsert(Cliente cliente)
         {
             bool ok = true;            
@@ -102,7 +99,6 @@ namespace AplicacionCINE.Datos
                 cnn.Open();               
                 SqlCommand Cmd = new SqlCommand("SP_NUEVO_CLIENTE", cnn);
                 Cmd.CommandType = CommandType.StoredProcedure;
-                //Cmd.Parameters.AddWithValue("@id_cliente", cliente.Id_cliente); ESTE NO VA PORQUE ES IDENTITY
                 Cmd.Parameters.AddWithValue("@nombre", cliente.Nombre);
                 Cmd.Parameters.AddWithValue("@apellido", cliente.Apellido);
                 Cmd.Parameters.AddWithValue("@fec_nac", cliente.Fecha_nacimiento);
@@ -123,9 +119,7 @@ namespace AplicacionCINE.Datos
             return ok;
         }
 
-
-
-        public bool EjecutarInsert(string SPMaestro, string SPDetalle, Reserva reserva)
+        public bool EjecutarInsert(string SPMaestro, string SPDetalle, Reserva reserva) //NO FUNCIONA AUN.
         {
             bool ok = true;
             SqlTransaction T = null;
@@ -212,6 +206,36 @@ namespace AplicacionCINE.Datos
                 }
             }
             return ok;
+        }
+
+        public bool EjecutarUpdateCliente(int id, string SP,string nombre)
+        {
+            bool aux = false;
+
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(SP, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_cliente", id);
+                cmd.Parameters.AddWithValue("@nombre", nombre);                
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+                aux = true;
+            }
+            catch
+            {
+                aux = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return aux;
         }
     }
 }

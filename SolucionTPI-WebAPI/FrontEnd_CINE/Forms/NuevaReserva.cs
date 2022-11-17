@@ -19,11 +19,13 @@ namespace FrontEnd_CINE.Forms
         private IServicio oServicio;
         private FabricaServicio oFabrica;
 
+       
+
         public NuevaReserva()
         {
             InitializeComponent();
             oFabrica = new FabricaServicioImp();        //estas 2 lineas reemplazan a GESTOR
-            oServicio = oFabrica.CrearServicio();       //
+            oServicio = oFabrica.CrearServicio();       //             
         }
         private void CargarCombo(ComboBox Combo, string SP)
         {
@@ -41,10 +43,29 @@ namespace FrontEnd_CINE.Forms
 
         private void NuevaResrva_Load(object sender, EventArgs e)
         {
-            btnGuardarNuevaReserva.Enabled = false;
-            CargarCombo(cboFuncion, "SP_CONSULTAR_FUNCIONES");
+            
+        }
+
+        private void NuevaReserva_Load(object sender, EventArgs e)
+        {            
+            btnGuardarNuevaReserva.Enabled = true;
+            CargarCombo(cboFuncion, "SP_CONSULTAR_FUNCION");
             CargarCombo(cboCliente, "SP_CONSULTAR_CLIENTES");
-            CargarCombo(cboPelicula, "SP_CONSULTAR_PELICULAS");
+            CargarCombo(cboPelicula, "SP_CONSULTAR_PELICULA");
+        }
+
+        private void btnGuardarNuevaReserva_Click(object sender, EventArgs e)
+        {
+            //Reserva r = new Reserva();
+            //DataRowView ItemCLient = (DataRowView)cboCliente.SelectedItem;
+            //r.id_pelicula = (int)ItemCLient.Row.ItemArray[0];
+            
+            //DataRowView ItemFunci = (DataRowView)cboFuncion.SelectedItem;
+            //r.id_Funcion = (DataRowView)ItemFunci.Row.ItemArray[0];
+          
+            //DataRowView ItemPeli = (DataRowView)cboPelicula.SelectedItem;
+            //r.
+            //     oServicio.EjecutarInsert(reserva);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace CINE_WebApi.Controllers
         public CINEController()
         {
             app = new ReservasDAO(); ////////   Agrego LEO
-            
+
         }
 
         [HttpGet("Reservas")]
@@ -23,8 +23,8 @@ namespace CINE_WebApi.Controllers
         {
             return Ok(app.ConsultarReservas());
         }
-       
-       
+
+
 
         [HttpGet("Funciones")]
         public IActionResult GetFunciones()
@@ -65,12 +65,32 @@ namespace CINE_WebApi.Controllers
                 {
                     return Ok(app.EjecutarInsertClientes(cliente));
                 }
-                
+
                 return BadRequest("Datos del cliente incorrectos!");
             }
             catch (Exception ex)
             {
                 return StatusCode(500, "Error interno! Intente luego");
+            }
+        }
+
+        [HttpPut("UptdateNombreCliente")]
+        public IActionResult PutCliente(int id, string nombre)
+        {
+            try
+            {
+                if (id != null)
+                {
+                    return Ok(app.EjecutarUpdateCliente(id, nombre));
+                }
+                else
+                {
+                    return StatusCode(500, "Error interno! Intente luego");
+                }
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
             }
         }
 

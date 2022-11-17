@@ -1075,3 +1075,32 @@ as
 UPDATE Clientes
 SET activo = 1
 WHERE id_cliente = @id
+
+create proc SP_ACTUALIZAR_CLIENTE
+@id_cliente int ,
+@nombre varchar(30)=null,
+@apellido varchar (30)=null,
+@fec_nac datetime =null
+as
+if (@id_cliente is null) 
+begin 
+	raiserror ('Falta id', 15,2)
+end
+begin
+if (@nombre is not null)	
+	update clientes set nombre = @nombre
+	where id_cliente = @id_cliente 
+end
+begin 
+	if (@apellido is not null)	
+	update clientes set apellido = @apellido
+	where id_cliente = @id_cliente 
+end
+begin 
+	if (@fec_nac is not null)	
+	update clientes set fec_nac = @fec_nac
+	where id_cliente = @id_cliente 
+end
+
+		select * from clientes
+		

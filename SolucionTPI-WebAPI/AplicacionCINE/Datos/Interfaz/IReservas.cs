@@ -7,6 +7,7 @@ namespace AplicacionCINE.Datos
     {
         DataTable ConsultarDB(string SP);
 
+
         List<Cliente> ConsultarClientes();
         
         List<Funcion> ConsultarFunciones();
@@ -17,6 +18,8 @@ namespace AplicacionCINE.Datos
 
         List<Reserva> ConsultarReservaXFecha(DateTime desde, DateTime hasta); //Falta implementar
         
+        bool EjecutarUpdateCliente(int id,string nombre);
+
         bool EjecutarInsertReserva(Reserva reserva);
 
         bool EliminarCliente(int id);

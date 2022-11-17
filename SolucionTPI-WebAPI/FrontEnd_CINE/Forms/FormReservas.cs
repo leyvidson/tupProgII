@@ -131,7 +131,7 @@ namespace FrontEnd_CINE.Forms
                 //MostrarReporte mostrar = new MostrarReporte();
                 //mostrar.Id_ticket = dgvReserva.CurrentCell.ColumnIndex;
 
-                //mostrar.ShowDialog();
+                //Mostrar.ShowDialog();
 
                 //este id se lo tengo q enviar al FormReporte                
 

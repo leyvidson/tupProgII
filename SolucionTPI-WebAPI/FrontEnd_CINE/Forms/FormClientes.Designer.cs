@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panelContenedorClientes = new System.Windows.Forms.Panel();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.lblNvoNombre = new System.Windows.Forms.Label();
+            this.txtNvoNombre = new System.Windows.Forms.TextBox();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevoCliente = new System.Windows.Forms.Button();
             this.lblCerrarClientes = new System.Windows.Forms.Label();
             this.lblClientes = new System.Windows.Forms.Label();
@@ -43,6 +47,10 @@
             // 
             // panelContenedorClientes
             // 
+            this.panelContenedorClientes.Controls.Add(this.btnGuardar);
+            this.panelContenedorClientes.Controls.Add(this.lblNvoNombre);
+            this.panelContenedorClientes.Controls.Add(this.txtNvoNombre);
+            this.panelContenedorClientes.Controls.Add(this.btnEditar);
             this.panelContenedorClientes.Controls.Add(this.btnNuevoCliente);
             this.panelContenedorClientes.Controls.Add(this.lblCerrarClientes);
             this.panelContenedorClientes.Controls.Add(this.lblClientes);
@@ -52,6 +60,56 @@
             this.panelContenedorClientes.Name = "panelContenedorClientes";
             this.panelContenedorClientes.Size = new System.Drawing.Size(796, 516);
             this.panelContenedorClientes.TabIndex = 0;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGuardar.Location = new System.Drawing.Point(420, 421);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(147, 48);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // lblNvoNombre
+            // 
+            this.lblNvoNombre.AutoSize = true;
+            this.lblNvoNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNvoNombre.Location = new System.Drawing.Point(86, 435);
+            this.lblNvoNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNvoNombre.Name = "lblNvoNombre";
+            this.lblNvoNombre.Size = new System.Drawing.Size(127, 22);
+            this.lblNvoNombre.TabIndex = 6;
+            this.lblNvoNombre.Text = "Nombre nuevo";
+            // 
+            // txtNvoNombre
+            // 
+            this.txtNvoNombre.Location = new System.Drawing.Point(220, 434);
+            this.txtNvoNombre.Name = "txtNvoNombre";
+            this.txtNvoNombre.Size = new System.Drawing.Size(183, 23);
+            this.txtNvoNombre.TabIndex = 5;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditar.Location = new System.Drawing.Point(192, 343);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(147, 48);
+            this.btnEditar.TabIndex = 4;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevoCliente
             // 
@@ -159,5 +217,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn fec_nac_cliente;
+        private Button btnEditar;
+        private Label lblNvoNombre;
+        private TextBox txtNvoNombre;
+        private Button btnGuardar;
     }
 }

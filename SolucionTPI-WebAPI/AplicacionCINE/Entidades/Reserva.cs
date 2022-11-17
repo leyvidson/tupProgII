@@ -12,7 +12,7 @@ namespace AplicacionCINE.Entidades
         public int id_Funcion { get; set; }         //<<<<<<<<<<<<<<<<<
         public string cliente { get; set; }        //<<<<<<<<<<<<<<<<<<  Para consultas
         public string pelicula { get; set; }      //<<<<<<<<<<<<<<<<<<< 
-        
+        public int id_pelicula { get; set; }
         public DateTime FechaReserva { get; set; }
         public int Cantidad { get; set; }
         

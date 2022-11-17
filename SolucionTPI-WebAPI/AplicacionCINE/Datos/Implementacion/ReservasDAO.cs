@@ -117,5 +117,10 @@ namespace AplicacionCINE.Datos
         {
             throw new NotImplementedException();
         }
+
+        public bool EjecutarUpdateCliente(int id, string nombre)
+        {
+            return HelperSingleton.ObtenerInstancia().EjecutarUpdateCliente(id, "SP_ACTUALIZAR_CLIENTE", nombre);
+        }
     }
 }

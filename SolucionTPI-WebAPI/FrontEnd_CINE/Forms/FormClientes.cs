@@ -12,6 +12,7 @@ using AplicacionCINE.Servicios.Interfaz;
 using AplicacionCINE.Servicios;
 using FrontEnd_CINE.Http;
 using Newtonsoft.Json;
+using AplicacionCINE.Datos;
 
 namespace FrontEnd_CINE.Forms
 {
@@ -22,6 +23,8 @@ namespace FrontEnd_CINE.Forms
 
         private Cliente cliente;
         List<Cliente> lClientes;
+        
+        private IReservas app;
 
         public FormClientes()
         {
@@ -30,12 +33,16 @@ namespace FrontEnd_CINE.Forms
             oFabrica = new FabricaServicioImp();        //estas 2 lineas reemplazan a GESTOR
             oServicio = oFabrica.CrearServicio();
             cliente = new Cliente();
-            lClientes = new List<Cliente>();            
+            lClientes = new List<Cliente>();
+            app = new ReservasDAO();
         }
 
         private async void FormClientes_Load(object sender, EventArgs e)
         {
             await ObtenerClientes();
+            lblNvoNombre.Visible = false;
+            txtNvoNombre.Visible = false;
+            btnGuardar.Visible = false;
         }
 
         private async Task ObtenerClientes()
@@ -106,6 +113,24 @@ namespace FrontEnd_CINE.Forms
             AbrirFormInPanel(new NuevoCliente());
         }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            
+            lblNvoNombre.Visible = true;
+            txtNvoNombre.Visible = true;
+            btnGuardar.Visible = true;
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            int id = dgvClientes.CurrentCell.ColumnIndex;
+            string nomNvo = txtNvoNombre.Text;
+            if (app.EjecutarUpdateCliente(id, nomNvo))
+            {
+                MessageBox.Show("Se actualizo con exito", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
     }
 }

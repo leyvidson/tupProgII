@@ -50,20 +50,46 @@ namespace AplicacionCINE.Datos
             {
                 Pelicula peli = new Pelicula();
                 peli.Titulo = (string)fila["titulo"];
-                
+
                 Lenguaje len = new Lenguaje();
                 len.Descripcion = (string)fila["lenguaje"];
 
                 Sala sala = new Sala();
                 sala.Id_sala = (int)fila["id_sala"];
-                
+
                 Funcion f = new Funcion();
-                f.Id_funcion = Convert.ToInt32(fila["id_funcion"]);               
+                f.Id_funcion = Convert.ToInt32(fila["id_funcion"]);
                 f.Horario = Convert.ToDateTime(fila["horario"]);
                 f.Precio = Convert.ToDecimal(fila["precio"]);
-                
+
                 f.Pelicula = peli;
                 f.Lenguaje = len;
+                f.Sala = sala;
+
+                Lfuncion.Add(f);
+            }
+            return Lfuncion;
+
+        }
+
+        public List<Funcion> ConsultarFuncionxReserva()
+        {
+            List<Funcion> Lfuncion = new List<Funcion>();
+            DataTable tabla = HelperSingleton.ObtenerInstancia().ConsultarDB("SP_FUNCIONxRESERVA");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Pelicula peli = new Pelicula();
+                peli.Id_pelicula = (int)fila["id_pelicula"];
+                peli.Titulo = (string)fila["titulo"];                             
+                
+                Sala sala = new Sala();
+                sala.Id_sala = (int)fila["id_sala"];
+                
+                Funcion f = new Funcion();
+                f.Id_funcion = Convert.ToInt32(fila["id_funcion"]);                               
+                f.Precio = Convert.ToDecimal(fila["precio"]);
+                
+                f.Pelicula = peli;                
                 f.Sala = sala;
                 
                 Lfuncion.Add(f);
@@ -84,7 +110,7 @@ namespace AplicacionCINE.Datos
                 
                 Cliente cli = new Cliente();
                 cli.Nombre = (string)fila["cliente"];
-                ///cli.Apellido = "";                         <<<<<<< a REVISAR LEO
+                                        
                
                 Pelicula peli = new Pelicula();
                 peli.Titulo = (string)fila["titulo"];

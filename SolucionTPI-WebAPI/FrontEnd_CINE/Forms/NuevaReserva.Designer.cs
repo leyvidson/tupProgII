@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvFuncionReserva = new System.Windows.Forms.DataGridView();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.dtpFechaReser = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.cboPelicula = new System.Windows.Forms.ComboBox();
-            this.lblPelicula = new System.Windows.Forms.Label();
             this.cboCliente = new System.Windows.Forms.ComboBox();
-            this.cboFuncion = new System.Windows.Forms.ComboBox();
             this.lblCliente = new System.Windows.Forms.Label();
-            this.lblFuncion = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btnGuardarNuevaReserva = new System.Windows.Forms.Button();
+            this.id_funcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_pelicula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionReserva)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dgvFuncionReserva);
             this.panel1.Controls.Add(this.nudCantidad);
             this.panel1.Controls.Add(this.lblCantidad);
             this.panel1.Controls.Add(this.dtpFechaReser);
             this.panel1.Controls.Add(this.lblFecha);
-            this.panel1.Controls.Add(this.cboPelicula);
-            this.panel1.Controls.Add(this.lblPelicula);
             this.panel1.Controls.Add(this.cboCliente);
-            this.panel1.Controls.Add(this.cboFuncion);
             this.panel1.Controls.Add(this.lblCliente);
-            this.panel1.Controls.Add(this.lblFuncion);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -64,9 +64,24 @@
             this.panel1.Size = new System.Drawing.Size(805, 377);
             this.panel1.TabIndex = 0;
             // 
+            // dgvFuncionReserva
+            // 
+            this.dgvFuncionReserva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFuncionReserva.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_funcion,
+            this.id_pelicula,
+            this.Titulo,
+            this.precio,
+            this.Sala});
+            this.dgvFuncionReserva.Location = new System.Drawing.Point(339, 61);
+            this.dgvFuncionReserva.Name = "dgvFuncionReserva";
+            this.dgvFuncionReserva.RowTemplate.Height = 25;
+            this.dgvFuncionReserva.Size = new System.Drawing.Size(407, 261);
+            this.dgvFuncionReserva.TabIndex = 34;
+            // 
             // nudCantidad
             // 
-            this.nudCantidad.Location = new System.Drawing.Point(136, 251);
+            this.nudCantidad.Location = new System.Drawing.Point(82, 224);
             this.nudCantidad.Minimum = new decimal(new int[] {
             1,
             0,
@@ -84,7 +99,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(63, 253);
+            this.lblCantidad.Location = new System.Drawing.Point(20, 226);
             this.lblCantidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(55, 15);
@@ -93,7 +108,7 @@
             // 
             // dtpFechaReser
             // 
-            this.dtpFechaReser.Location = new System.Drawing.Point(136, 205);
+            this.dtpFechaReser.Location = new System.Drawing.Point(57, 155);
             this.dtpFechaReser.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dtpFechaReser.Name = "dtpFechaReser";
             this.dtpFechaReser.Size = new System.Drawing.Size(233, 23);
@@ -102,69 +117,32 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(63, 212);
+            this.lblFecha.Location = new System.Drawing.Point(11, 161);
             this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(38, 15);
             this.lblFecha.TabIndex = 30;
             this.lblFecha.Text = "Fecha";
-            // 
-            // cboPelicula
-            // 
-            this.cboPelicula.FormattingEnabled = true;
-            this.cboPelicula.Location = new System.Drawing.Point(136, 165);
-            this.cboPelicula.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboPelicula.Name = "cboPelicula";
-            this.cboPelicula.Size = new System.Drawing.Size(140, 23);
-            this.cboPelicula.TabIndex = 29;
-            // 
-            // lblPelicula
-            // 
-            this.lblPelicula.AutoSize = true;
-            this.lblPelicula.Location = new System.Drawing.Point(63, 168);
-            this.lblPelicula.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPelicula.Name = "lblPelicula";
-            this.lblPelicula.Size = new System.Drawing.Size(48, 15);
-            this.lblPelicula.TabIndex = 28;
-            this.lblPelicula.Text = "Pelicula";
+            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // cboCliente
             // 
             this.cboCliente.FormattingEnabled = true;
-            this.cboCliente.Location = new System.Drawing.Point(136, 135);
+            this.cboCliente.Location = new System.Drawing.Point(82, 102);
             this.cboCliente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboCliente.Name = "cboCliente";
             this.cboCliente.Size = new System.Drawing.Size(140, 23);
             this.cboCliente.TabIndex = 27;
             // 
-            // cboFuncion
-            // 
-            this.cboFuncion.FormattingEnabled = true;
-            this.cboFuncion.Location = new System.Drawing.Point(136, 103);
-            this.cboFuncion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboFuncion.Name = "cboFuncion";
-            this.cboFuncion.Size = new System.Drawing.Size(140, 23);
-            this.cboFuncion.TabIndex = 26;
-            // 
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(63, 135);
+            this.lblCliente.Location = new System.Drawing.Point(20, 105);
             this.lblCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(44, 15);
             this.lblCliente.TabIndex = 25;
             this.lblCliente.Text = "Cliente";
-            // 
-            // lblFuncion
-            // 
-            this.lblFuncion.AutoSize = true;
-            this.lblFuncion.Location = new System.Drawing.Point(63, 103);
-            this.lblFuncion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFuncion.Name = "lblFuncion";
-            this.lblFuncion.Size = new System.Drawing.Size(50, 15);
-            this.lblFuncion.TabIndex = 24;
-            this.lblFuncion.Text = "Funcion";
             // 
             // label11
             // 
@@ -196,6 +174,33 @@
             this.btnGuardarNuevaReserva.UseVisualStyleBackColor = true;
             this.btnGuardarNuevaReserva.Click += new System.EventHandler(this.btnGuardarNuevaReserva_Click);
             // 
+            // id_funcion
+            // 
+            this.id_funcion.HeaderText = "id";
+            this.id_funcion.Name = "id_funcion";
+            this.id_funcion.Visible = false;
+            // 
+            // id_pelicula
+            // 
+            this.id_pelicula.HeaderText = "";
+            this.id_pelicula.Name = "id_pelicula";
+            this.id_pelicula.Visible = false;
+            // 
+            // Titulo
+            // 
+            this.Titulo.HeaderText = "Pelicula";
+            this.Titulo.Name = "Titulo";
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Valor en $";
+            this.precio.Name = "precio";
+            // 
+            // Sala
+            // 
+            this.Sala.HeaderText = "Sala";
+            this.Sala.Name = "Sala";
+            // 
             // NuevaReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -210,6 +215,7 @@
             this.Load += new System.EventHandler(this.NuevaReserva_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionReserva)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             this.ResumeLayout(false);
 
@@ -220,15 +226,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnGuardarNuevaReserva;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cboPelicula;
-        private System.Windows.Forms.Label lblPelicula;
         private System.Windows.Forms.ComboBox cboCliente;
-        private System.Windows.Forms.ComboBox cboFuncion;
         private System.Windows.Forms.Label lblCliente;
-        private System.Windows.Forms.Label lblFuncion;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.DateTimePicker dtpFechaReser;
         private System.Windows.Forms.Label lblFecha;
         private NumericUpDown nudCantidad;
+        private DataGridView dgvFuncionReserva;
+        private DataGridViewTextBoxColumn id_funcion;
+        private DataGridViewTextBoxColumn id_pelicula;
+        private DataGridViewTextBoxColumn Titulo;
+        private DataGridViewTextBoxColumn precio;
+        private DataGridViewTextBoxColumn Sala;
     }
 }

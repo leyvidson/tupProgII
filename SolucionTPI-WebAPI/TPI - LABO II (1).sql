@@ -1115,3 +1115,10 @@ AS
 INSERT INTO reservas(id_funcion,id_cliente,id_pelicula,fecha,cantidad) 
 VALUES (@id_funcion,@id_cliente,@id_pelicula,@fecha,@cantidad) 
 SET @idOut = @@Identity;		
+
+
+alter Proc SP_FUNCIONxRESERVA --Agregado nuevooo (para llenar la gdvFuncionReserva en nueva reserva)
+as
+select id_funcion, f.id_pelicula, titulo, FORMAT(horario, 'HH/m') horario, precio, id_sala
+
+from funciones f join peliculas p on f.id_pelicula = p.id_pelicula

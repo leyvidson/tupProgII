@@ -10,11 +10,11 @@ namespace CINE_WebApi.Controllers
     [ApiController]
     public class CINEController : ControllerBase
     {
-        private IReservas app; /// Agrego LEO
+        private IReservas app; 
 
         public CINEController()
         {
-            app = new ReservasDAO(); ////////   Agrego LEO
+            app = new ReservasDAO(); 
 
         }
 
@@ -24,7 +24,11 @@ namespace CINE_WebApi.Controllers
             return Ok(app.ConsultarReservas());
         }
 
-
+        [HttpGet("FuncionParaReservar")]  //agregado para reservar funciones
+        public IActionResult GetFuncionXReserva()
+        {
+            return Ok(app.ConsultarFuncionxReserva());
+        }
 
         [HttpGet("Funciones")]
         public IActionResult GetFunciones()

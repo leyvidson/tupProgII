@@ -60,7 +60,7 @@ namespace FrontEnd_CINE.Forms
                 cliente.Apellido = txtApellido.Text;
                 cliente.Fecha_nacimiento = Convert.ToDateTime(dtpFec_Nac.Text);
 
-                if (oServicio.EjecutarInsert(cliente))
+                if (oServicio.EjecutarInsertClientes(cliente))
                 {
                     MessageBox.Show("Se inserto correctame una nuevo Cliente", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

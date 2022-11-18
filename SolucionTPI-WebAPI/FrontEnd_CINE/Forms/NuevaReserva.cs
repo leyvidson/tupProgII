@@ -2,6 +2,8 @@
 using AplicacionCINE.Entidades;
 using AplicacionCINE.Servicios;
 using AplicacionCINE.Servicios.Interfaz;
+using FrontEnd_CINE.Http;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,14 +21,11 @@ namespace FrontEnd_CINE.Forms
         private IServicio oServicio;
         private FabricaServicio oFabrica;
 
-        private IReservas app;
-
         public NuevaReserva()
         {
             InitializeComponent();
             oFabrica = new FabricaServicioImp();        //estas 2 lineas reemplazan a GESTOR
             oServicio = oFabrica.CrearServicio();       //             
-            app = new ReservasDAO();
         }
         private void CargarCombo(ComboBox Combo, string SP)
         {
@@ -47,12 +46,27 @@ namespace FrontEnd_CINE.Forms
             
         }
 
-        private void NuevaReserva_Load(object sender, EventArgs e)
+        private async void NuevaReserva_Load(object sender, EventArgs e)
         {            
-            btnGuardarNuevaReserva.Enabled = true;
-            CargarCombo(cboFuncion, "SP_CONSULTAR_FUNCION"); //Este SP esta trayendo mal la info! hay que hacer otro sp
-            CargarCombo(cboCliente, "SP_CONSULTAR_CLIENTES");
-            CargarCombo(cboPelicula, "SP_CONSULTAR_PELICULA");
+            CargarCombo(cboCliente, "SP_CONSULTAR_CLIENTES");            
+            await ObtenerFuncionxReservas();
+        }
+
+        private async Task ObtenerFuncionxReservas()
+        {
+            string URL = "https://localhost:7295/api/CINE/Funciones";
+
+            var result = await ClientSingleton.GetInstance().GetAsync(URL);
+            var lfuncion = JsonConvert.DeserializeObject<List<Funcion>>(result);
+
+            foreach (Funcion Func in lfuncion)
+            {
+                dgvFuncionReserva.Rows.Add(new object[]
+                {
+                        Func.Id_funcion, Func.Pelicula.Id_pelicula, Func.Pelicula.Titulo,
+                        Func.Precio, Func.Sala.Id_sala
+                });
+            }
         }
 
         private void btnGuardarNuevaReserva_Click(object sender, EventArgs e)
@@ -64,24 +78,16 @@ namespace FrontEnd_CINE.Forms
             c.Id_cliente = (int)ItemCLient.Row.ItemArray[0];
             c.Nombre = (string)ItemCLient.Row.ItemArray[1];
             
-            DataRowView ItemFunci = (DataRowView)cboFuncion.SelectedItem;
-            Funcion fun =  new Funcion();
-            fun.Id_funcion = (int)ItemFunci.Row.ItemArray[0];
-            
-            
-            DataRowView ItemPeli = (DataRowView)cboPelicula.SelectedItem;
-            Pelicula p = new Pelicula();
-            p.Id_pelicula = (int)ItemPeli.Row.ItemArray[0];
-            p.Titulo = (string)ItemPeli.Row.ItemArray[1];
+                                
            
             Reserva r = new Reserva();
             r.Cliente = c;
-            r.Funcion = fun;
-            r.Pelicula = p;
+            //r.Funcion.Id_funcion = null;
+           // r.Pelicula.Id_pelicula = null
             r.Cantidad = (int)nudCantidad.Value;
             r.FechaReserva = dtpFechaReser.Value;   
             
-            if(app.EjecutarInsertReserva(r))
+            if(oServicio.EjecutarInsertReserva(r))
             {
                 MessageBox.Show("Se genero una nueva reserva con exito!", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -89,6 +95,11 @@ namespace FrontEnd_CINE.Forms
             {
                 MessageBox.Show("ERROR! No se pudo generar la reserva", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

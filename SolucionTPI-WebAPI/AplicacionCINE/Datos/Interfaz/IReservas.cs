@@ -7,6 +7,7 @@ namespace AplicacionCINE.Datos
     {
         DataTable ConsultarDB(string SP);
 
+        List<Funcion> ConsultarFuncionxReserva();
 
         List<Cliente> ConsultarClientes();
         

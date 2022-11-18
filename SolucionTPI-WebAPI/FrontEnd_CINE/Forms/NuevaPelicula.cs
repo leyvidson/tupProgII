@@ -86,7 +86,7 @@ namespace FrontEnd_CINE.Forms
                 Pelicula p = new Pelicula(gen, calif, du, sub, fe, apto, actor, origen, sinop, ti);//Por ultimo Instanciamos Peliculas
 
 
-                if (oServicio.EjecutarInsert(p))
+                if (oServicio.EjecutarInsertPeliculas(p))
                 {
                     MessageBox.Show("Se inserto correctame una nueva Pelicula", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

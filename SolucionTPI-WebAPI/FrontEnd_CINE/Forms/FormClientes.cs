@@ -22,9 +22,7 @@ namespace FrontEnd_CINE.Forms
         private FabricaServicio oFabrica;
 
         private Cliente cliente;
-        List<Cliente> lClientes;
-        
-        private IReservas app;
+        List<Cliente> lClientes;      
 
         public FormClientes()
         {
@@ -34,7 +32,6 @@ namespace FrontEnd_CINE.Forms
             oServicio = oFabrica.CrearServicio();
             cliente = new Cliente();
             lClientes = new List<Cliente>();
-            app = new ReservasDAO();
         }
 
         private async void FormClientes_Load(object sender, EventArgs e)
@@ -48,7 +45,6 @@ namespace FrontEnd_CINE.Forms
         private async Task ObtenerClientes()
         {
             string URL = "https://localhost:7295/api/CINE/Clientes";
-
             var result = await ClientSingleton.GetInstance().GetAsync(URL);
             var lClientes = JsonConvert.DeserializeObject<List<Cliente>>(result);
 
@@ -115,7 +111,7 @@ namespace FrontEnd_CINE.Forms
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            
+
             lblNvoNombre.Visible = true;
             txtNvoNombre.Visible = true;
             btnGuardar.Visible = true;
@@ -124,13 +120,26 @@ namespace FrontEnd_CINE.Forms
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            int id = dgvClientes.CurrentCell.ColumnIndex;
-            string nomNvo = txtNvoNombre.Text;
-            if (app.EjecutarUpdateCliente(id, nomNvo))
+            if (!string.IsNullOrEmpty(txtNvoNombre.Text))
             {
-                MessageBox.Show("Se actualizo con exito", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int id = (dgvClientes.CurrentCell.RowIndex) + 1;
+                string nomNvo = txtNvoNombre.Text;
+                if (oServicio.EjecutarUpdateCliente(id, nomNvo))
+                {
+                    MessageBox.Show("Se actualizo con exito", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
+                }
             }
-
+            else
+            {
+                MessageBox.Show("Debe compretar con un nombre", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNvoNombre.Focus();
+            }
+        }
+        public void limpiar()
+        {
+            txtNvoNombre.Clear();
+            dgvClientes.Refresh();
         }
     }
 }

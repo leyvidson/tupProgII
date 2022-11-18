@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblCantidad = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaReser = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.cboPelicula = new System.Windows.Forms.ComboBox();
             this.lblPelicula = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.lblFuncion = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btnGuardarNuevaReserva = new System.Windows.Forms.Button();
-            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             // 
             this.panel1.Controls.Add(this.nudCantidad);
             this.panel1.Controls.Add(this.lblCantidad);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.dtpFechaReser);
             this.panel1.Controls.Add(this.lblFecha);
             this.panel1.Controls.Add(this.cboPelicula);
             this.panel1.Controls.Add(this.lblPelicula);
@@ -64,6 +64,23 @@
             this.panel1.Size = new System.Drawing.Size(805, 377);
             this.panel1.TabIndex = 0;
             // 
+            // nudCantidad
+            // 
+            this.nudCantidad.Location = new System.Drawing.Point(136, 251);
+            this.nudCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCantidad.Name = "nudCantidad";
+            this.nudCantidad.Size = new System.Drawing.Size(120, 23);
+            this.nudCantidad.TabIndex = 33;
+            this.nudCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
@@ -74,13 +91,13 @@
             this.lblCantidad.TabIndex = 32;
             this.lblCantidad.Text = "Cantidad";
             // 
-            // dateTimePicker1
+            // dtpFechaReser
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(136, 205);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(233, 23);
-            this.dateTimePicker1.TabIndex = 31;
+            this.dtpFechaReser.Location = new System.Drawing.Point(136, 205);
+            this.dtpFechaReser.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dtpFechaReser.Name = "dtpFechaReser";
+            this.dtpFechaReser.Size = new System.Drawing.Size(233, 23);
+            this.dtpFechaReser.TabIndex = 31;
             // 
             // lblFecha
             // 
@@ -179,23 +196,6 @@
             this.btnGuardarNuevaReserva.UseVisualStyleBackColor = true;
             this.btnGuardarNuevaReserva.Click += new System.EventHandler(this.btnGuardarNuevaReserva_Click);
             // 
-            // nudCantidad
-            // 
-            this.nudCantidad.Location = new System.Drawing.Point(136, 251);
-            this.nudCantidad.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudCantidad.Name = "nudCantidad";
-            this.nudCantidad.Size = new System.Drawing.Size(120, 23);
-            this.nudCantidad.TabIndex = 33;
-            this.nudCantidad.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // NuevaReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -227,7 +227,7 @@
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Label lblFuncion;
         private System.Windows.Forms.Label lblCantidad;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFechaReser;
         private System.Windows.Forms.Label lblFecha;
         private NumericUpDown nudCantidad;
     }

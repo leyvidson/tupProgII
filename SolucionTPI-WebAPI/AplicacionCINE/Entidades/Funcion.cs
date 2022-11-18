@@ -9,27 +9,27 @@ namespace AplicacionCINE.Entidades
     public class Funcion
     {
         public int Id_funcion { get; set; }
-        public string Pelicula { get; set; }      //<<<<<<<<<<<
+        public Pelicula Pelicula { get; set; }      //<<<<<<<<<<<
         public DateTime Horario { get; set; }
         public decimal Precio { get; set; }
-        public string Lenguaje { get; set; }     //<<<<<<<<<<<<<
-        public int Sala { get; set; }         //<<<<<<<<<<<<<
-        
-        
-        //public Pelicula pelicula { get; set; }
-        //public Lenguaje enguaje { get; set; }   
-        //public Sala sala { get; set; }
+        public Lenguaje Lenguaje { get; set; }     //<<<<<<<<<<<<<
+        public Sala Sala { get; set; }         //<<<<<<<<<<<<<
 
+
+        //public string pelicula { get; set; }
+        //public boollenguaje { get; set; }   
+        //public int sala { get; set; }
+             
 
         public Funcion(int id, string pelicula, DateTime horario, decimal precio,
             string lenguaje, int sala)
         {
             Id_funcion = id;
-            Pelicula = pelicula;
+            Pelicula = null;
             Horario = horario;
             Precio = precio;
-            Lenguaje = lenguaje;
-            Sala = sala;
+            Lenguaje = null;
+            Sala = null;
         }
 
         public Funcion()

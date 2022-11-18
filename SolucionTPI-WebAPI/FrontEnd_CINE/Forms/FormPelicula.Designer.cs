@@ -49,8 +49,9 @@
             // lblPelicula
             // 
             this.lblPelicula.AutoSize = true;
-            this.lblPelicula.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPelicula.Location = new System.Drawing.Point(282, 21);
+            this.lblPelicula.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPelicula.Location = new System.Drawing.Point(329, 24);
+            this.lblPelicula.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPelicula.Name = "lblPelicula";
             this.lblPelicula.Size = new System.Drawing.Size(82, 22);
             this.lblPelicula.TabIndex = 0;
@@ -62,13 +63,14 @@
             this.btnNueva.FlatAppearance.BorderSize = 0;
             this.btnNueva.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnNueva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNueva.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNueva.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNueva.ForeColor = System.Drawing.Color.Black;
             this.btnNueva.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNueva.Location = new System.Drawing.Point(0, 342);
+            this.btnNueva.Location = new System.Drawing.Point(0, 395);
+            this.btnNueva.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNueva.Name = "btnNueva";
             this.btnNueva.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnNueva.Size = new System.Drawing.Size(121, 55);
+            this.btnNueva.Size = new System.Drawing.Size(141, 63);
             this.btnNueva.TabIndex = 1;
             this.btnNueva.Text = "Nueva   ";
             this.btnNueva.UseVisualStyleBackColor = true;
@@ -78,8 +80,9 @@
             // 
             this.lblCerrar.AutoSize = true;
             this.lblCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCerrar.Location = new System.Drawing.Point(654, 21);
+            this.lblCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCerrar.Location = new System.Drawing.Point(763, 24);
+            this.lblCerrar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCerrar.Name = "lblCerrar";
             this.lblCerrar.Size = new System.Drawing.Size(22, 22);
             this.lblCerrar.TabIndex = 2;
@@ -100,9 +103,10 @@
             this.subtitulos_pelicula,
             this.fec_estreno_pelicula,
             this.genero_pelicula});
-            this.dgvPeliculas.Location = new System.Drawing.Point(0, 56);
+            this.dgvPeliculas.Location = new System.Drawing.Point(0, 65);
+            this.dgvPeliculas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvPeliculas.Name = "dgvPeliculas";
-            this.dgvPeliculas.Size = new System.Drawing.Size(716, 289);
+            this.dgvPeliculas.Size = new System.Drawing.Size(835, 333);
             this.dgvPeliculas.TabIndex = 3;
             this.dgvPeliculas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPeliculas_CellContentClick);
             // 
@@ -160,16 +164,18 @@
             this.panelContenedorPeliculas.Controls.Add(this.btnNueva);
             this.panelContenedorPeliculas.Controls.Add(this.lblPelicula);
             this.panelContenedorPeliculas.Location = new System.Drawing.Point(2, 0);
+            this.panelContenedorPeliculas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelContenedorPeliculas.Name = "panelContenedorPeliculas";
-            this.panelContenedorPeliculas.Size = new System.Drawing.Size(716, 421);
+            this.panelContenedorPeliculas.Size = new System.Drawing.Size(835, 486);
             this.panelContenedorPeliculas.TabIndex = 4;
             this.panelContenedorPeliculas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedorPeliculas_Paint);
             // 
             // CerrarLbl
             // 
             this.CerrarLbl.AutoSize = true;
-            this.CerrarLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CerrarLbl.Location = new System.Drawing.Point(691, 9);
+            this.CerrarLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CerrarLbl.Location = new System.Drawing.Point(806, 10);
+            this.CerrarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CerrarLbl.Name = "CerrarLbl";
             this.CerrarLbl.Size = new System.Drawing.Size(22, 22);
             this.CerrarLbl.TabIndex = 4;
@@ -178,15 +184,17 @@
             // 
             // FormPelicula
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(718, 454);
+            this.ClientSize = new System.Drawing.Size(838, 524);
             this.Controls.Add(this.panelContenedorPeliculas);
             this.Controls.Add(this.lblCerrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormPelicula";
             this.Text = "Pelicula";
+            this.Load += new System.EventHandler(this.FormPelicula_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeliculas)).EndInit();
             this.panelContenedorPeliculas.ResumeLayout(false);
             this.panelContenedorPeliculas.PerformLayout();

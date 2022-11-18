@@ -10,22 +10,22 @@ namespace AplicacionCINE.Entidades
     {
         public int Id_pelicula { get; set; }   //Identity
         
-        public string genero { get; set; }              //<<<<<<<<<<<<<<<<
-        public string calificacion { get; set; }        //<<<<<<<<<<<<<<<<
-        public string actor_principal { get; set; }     //<<<<<<<<<<<<<<<<
+        //public string genero { get; set; }              //<<<<<<<<<<<<<<<<
+        //public string calificacion { get; set; }        //<<<<<<<<<<<<<<<<
+        //public string actor_principal { get; set; }     //<<<<<<<<<<<<<<<<
         
         public decimal Duracion { get; set; }
         public bool Subtitulo { get; set; }
         public DateTime Fecha_estreno { get; set; }
-        public bool Apto_toto_publico { get; set; }
+        public bool Apto_todo_publico { get; set; }
         public string Sinopsis { get; set; }
         public string Titulo { get; set; } 
         
         
-        public Origen OrigenInst { get; set; }
-        public Genero GeneroInst { get; set; }
-        public Calificacion CalificacionInst { get; set; }          //                         
-        public ActorPrincipal Actor_principalInst { get; set; }
+        public Origen Origen { get; set; }
+        public Genero Genero { get; set; }
+        public Calificacion Calificacion { get; set; }          //                         
+        public ActorPrincipal Actor_principal { get; set; }
                
 
         public Pelicula(Genero genero, Calificacion calificacion,
@@ -33,14 +33,14 @@ namespace AplicacionCINE.Entidades
             bool apto_toto_publico, ActorPrincipal actor_principal,
             Origen origen, string sinopsis, string titulo)
         {
-            GeneroInst = genero;
-            CalificacionInst = calificacion;
+            Genero = genero;
+            Calificacion = calificacion;
             Duracion = duracion;
             Subtitulo = subtitolo;
             Fecha_estreno = fecha_estreno;
-            Apto_toto_publico = apto_toto_publico;
-            Actor_principalInst = actor_principal;
-            OrigenInst = origen;
+            Apto_todo_publico = apto_toto_publico;
+            Actor_principal = actor_principal;
+            Origen = origen;
             Sinopsis = sinopsis;
             Titulo = titulo;
         }
@@ -49,9 +49,5 @@ namespace AplicacionCINE.Entidades
         {
         }
 
-        public override string ToString()
-        {
-            return base.ToString(); 
-        }
     }
 }

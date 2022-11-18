@@ -16,6 +16,12 @@ namespace AplicacionCINE.Entidades
             Id_lenguaje = id_lenguaje;
             Descripcion = descripcion;
         }
+
+        public Lenguaje()
+        {
+
+        }
+
         public override string ToString()
         {
             return base.ToString();

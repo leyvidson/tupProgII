@@ -22,9 +22,7 @@ namespace AplicacionCINE.Entidades
             this.Id_calificacion = id_calificacion;
             this.Descripcion = descripcion;
         }
-        public override string ToString()
-        {
-            return base.ToString(); 
-        }
+        
+        
     }
 }

@@ -22,9 +22,6 @@ namespace AplicacionCINE.Entidades
             Id_actor_principal = 0;
             Nombre = string.Empty;
         }
-        public override string ToString()
-        {
-            return base.ToString(); 
-        }
+      
     }
 }

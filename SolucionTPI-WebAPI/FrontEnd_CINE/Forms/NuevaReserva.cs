@@ -19,13 +19,14 @@ namespace FrontEnd_CINE.Forms
         private IServicio oServicio;
         private FabricaServicio oFabrica;
 
-       
+        private IReservas app;
 
         public NuevaReserva()
         {
             InitializeComponent();
             oFabrica = new FabricaServicioImp();        //estas 2 lineas reemplazan a GESTOR
             oServicio = oFabrica.CrearServicio();       //             
+            app = new ReservasDAO();
         }
         private void CargarCombo(ComboBox Combo, string SP)
         {
@@ -49,23 +50,45 @@ namespace FrontEnd_CINE.Forms
         private void NuevaReserva_Load(object sender, EventArgs e)
         {            
             btnGuardarNuevaReserva.Enabled = true;
-            CargarCombo(cboFuncion, "SP_CONSULTAR_FUNCION");
+            CargarCombo(cboFuncion, "SP_CONSULTAR_FUNCION"); //Este SP esta trayendo mal la info! hay que hacer otro sp
             CargarCombo(cboCliente, "SP_CONSULTAR_CLIENTES");
             CargarCombo(cboPelicula, "SP_CONSULTAR_PELICULA");
         }
 
         private void btnGuardarNuevaReserva_Click(object sender, EventArgs e)
         {
-            //Reserva r = new Reserva();
-            //DataRowView ItemCLient = (DataRowView)cboCliente.SelectedItem;
-            //r.id_pelicula = (int)ItemCLient.Row.ItemArray[0];
             
-            //DataRowView ItemFunci = (DataRowView)cboFuncion.SelectedItem;
-            //r.id_Funcion = (DataRowView)ItemFunci.Row.ItemArray[0];
-          
-            //DataRowView ItemPeli = (DataRowView)cboPelicula.SelectedItem;
-            //r.
-            //     oServicio.EjecutarInsert(reserva);
+           
+            DataRowView ItemCLient = (DataRowView)cboCliente.SelectedItem;
+            Cliente c = new Cliente();
+            c.Id_cliente = (int)ItemCLient.Row.ItemArray[0];
+            c.Nombre = (string)ItemCLient.Row.ItemArray[1];
+            
+            DataRowView ItemFunci = (DataRowView)cboFuncion.SelectedItem;
+            Funcion fun =  new Funcion();
+            fun.Id_funcion = (int)ItemFunci.Row.ItemArray[0];
+            
+            
+            DataRowView ItemPeli = (DataRowView)cboPelicula.SelectedItem;
+            Pelicula p = new Pelicula();
+            p.Id_pelicula = (int)ItemPeli.Row.ItemArray[0];
+            p.Titulo = (string)ItemPeli.Row.ItemArray[1];
+           
+            Reserva r = new Reserva();
+            r.Cliente = c;
+            r.Funcion = fun;
+            r.Pelicula = p;
+            r.Cantidad = (int)nudCantidad.Value;
+            r.FechaReserva = dtpFechaReser.Value;   
+            
+            if(app.EjecutarInsertReserva(r))
+            {
+                MessageBox.Show("Se genero una nueva reserva con exito!", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("ERROR! No se pudo generar la reserva", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

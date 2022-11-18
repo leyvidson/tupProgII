@@ -31,7 +31,7 @@ namespace FrontEnd_CINE.Forms
             oServicio = oFabrica.CrearServicio();   //estas 2 lineas reemplazan a GESTOR
 
             lPeliculas = new List<Pelicula>();
-            cargarDGV();
+            //cargarDGV();
         }
 
         private void lblCerrar_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace FrontEnd_CINE.Forms
             this.Close();
         }
 
-        private async void Pelicula_Load(object sender, EventArgs e)
+        private async void FormPelicula_Load(object sender, EventArgs e)
         {
             await ConsultarPeliculas();
         }
@@ -57,47 +57,47 @@ namespace FrontEnd_CINE.Forms
                         p.Id_pelicula,
                         p.Titulo,
                         p.Duracion,
-                        p.calificacion,
-                        p.Apto_toto_publico,
+                        p.Calificacion.Descripcion,
+                        p.Apto_todo_publico,
                         p.Subtitulo,
-                        p.Fecha_estreno,
-                        p.genero
+                        p.Fecha_estreno.ToString("dd/MM/yyyy"),
+                        p.Genero.Descripcion
                 });
             }
             
         }
 
-        private void cargarDGV()
-        {
+        //private void cargarDGV()  NO SE STA USANDO
+        //{
 
-            DataTable tabla = oServicio.ConsultarDB("SP_CONSULTAR_PELICULA");
-            foreach (DataRow fila in tabla.Rows)
-            {
-                Pelicula Peli = new Pelicula();
+        //    DataTable tabla = oServicio.ConsultarDB("SP_CONSULTAR_PELICULA");
+        //    foreach (DataRow fila in tabla.Rows)
+        //    {
+        //        Pelicula Peli = new Pelicula();
 
-                Peli.Id_pelicula = (int)(fila["id_pelicula"]);
-                Peli.Titulo = fila["titulo"].ToString();
-                Peli.Duracion = (decimal)fila["duracion"];
+        //        Peli.Id_pelicula = (int)(fila["id_pelicula"]);
+        //        Peli.Titulo = fila["titulo"].ToString();
+        //        Peli.Duracion = (decimal)fila["duracion"];
 
-                Peli.calificacion = (string)fila["calificacion"];
-                //Peli.calificacion.Descripcion = fila["calificacion"].ToString();                
+        //        Peli.calificacion = (string)fila["calificacion"];
+        //        //Peli.calificacion.Descripcion = fila["calificacion"].ToString();                
 
-                Peli.Apto_toto_publico = Convert.ToBoolean(fila["apto_para_todo_publico"]);
-                Peli.Subtitulo = Convert.ToBoolean(fila["subtitulos"]);
-                Peli.Fecha_estreno = Convert.ToDateTime(fila["fecha_de_estreno"]);
+        //        Peli.Apto_todo_publico = Convert.ToBoolean(fila["apto_para_todo_publico"]);
+        //        Peli.Subtitulo = Convert.ToBoolean(fila["subtitulos"]);
+        //        Peli.Fecha_estreno = Convert.ToDateTime(fila["fecha_de_estreno"]);
 
-                Peli.genero = (string)fila["genero"];
-                //Peli.genero.Descripcion = fila["genero"].ToString();
+        //        Peli.genero = (string)fila["genero"];
+        //        //Peli.genero.Descripcion = fila["genero"].ToString();
 
-                lPeliculas.Add(Peli);
-            }
-            dgvPeliculas.Rows.Clear();
-            foreach (Pelicula Peli in lPeliculas)
-            {
-                dgvPeliculas.Rows.Add(new object[] { Peli.Id_pelicula, Peli.Titulo, Peli.Duracion, Peli.calificacion,
-                                                Peli.Apto_toto_publico, Peli.Subtitulo, Peli.Fecha_estreno, Peli.genero});
-            }
-        }
+        //        lPeliculas.Add(Peli);
+        //    }
+        //    dgvPeliculas.Rows.Clear();
+        //    foreach (Pelicula Peli in lPeliculas)
+        //    {
+        //        dgvPeliculas.Rows.Add(new object[] { Peli.Id_pelicula, Peli.Titulo, Peli.Duracion, Peli.calificacion,
+        //                                        Peli.Apto_todo_publico, Peli.Subtitulo, Peli.Fecha_estreno, Peli.genero});
+        //    }
+        //}
 
         private void AbrirFormInPanel(object formHijo)
         {
@@ -143,5 +143,7 @@ namespace FrontEnd_CINE.Forms
         {
             this.Close();
         }
+
+       
     }
 }

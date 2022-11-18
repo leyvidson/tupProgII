@@ -1069,14 +1069,14 @@ HAVING AVG(precio) > (SELECT AVG(precio)
  
  exec SP_CONSULTAR_RESERVA
 
-create proc SP_OCULTAR_CLIENTE
+create proc SP_OCULTAR_CLIENTE  --ESTE LE DA UNA BAJA LOGICA
 @id int
 as
 UPDATE Clientes
 SET activo = 1
 WHERE id_cliente = @id
 
-create proc SP_ACTUALIZAR_CLIENTE
+create proc SP_ACTUALIZAR_CLIENTE -- ESTE ES NUEVO PARA ACTUALIZAR
 @id_cliente int ,
 @nombre varchar(30)=null,
 @apellido varchar (30)=null,
@@ -1102,5 +1102,16 @@ begin
 	where id_cliente = @id_cliente 
 end
 
-		select * from clientes
-		
+select * from clientes
+
+ALTER PROCEDURE [dbo].[SP_NUEVA_RESERVA]  --EJECUTARLO ASI SE PRODUCE EL CAMBIO
+@id_funcion INT,
+@id_cliente INT,
+@id_pelicula INT,
+@fecha DATETIME,
+@cantidad int,    --AGREGRE ESTE CAMPO AL SP, 
+@idOut INT OUTPUT
+AS
+INSERT INTO reservas(id_funcion,id_cliente,id_pelicula,fecha,cantidad) 
+VALUES (@id_funcion,@id_cliente,@id_pelicula,@fecha,@cantidad) 
+SET @idOut = @@Identity;		

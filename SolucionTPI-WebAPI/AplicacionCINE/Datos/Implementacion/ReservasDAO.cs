@@ -11,9 +11,9 @@ namespace AplicacionCINE.Datos
     public class ReservasDAO : IReservas
     {      
 
-        public bool EjecutarInsertReserva(Reserva reserva)
+        public bool EjecutarInsertReserva(Reserva reserva) ///////////////////
         {
-            return HelperSingleton.ObtenerInstancia().EjecutarInsert("SP_NvaRESERVA","SP_NvoDETALLE", reserva);
+            return HelperSingleton.ObtenerInstancia().EjecutarInsert("SP_NUEVA_RESERVA","SP_DETALLE_RESERVA", reserva);
         }
 
         public bool EjecutarInsertPeliculas(Pelicula pelicula)
@@ -48,13 +48,24 @@ namespace AplicacionCINE.Datos
             DataTable tabla = HelperSingleton.ObtenerInstancia().ConsultarDB("SP_CONSULTAR_FUNCION");
             foreach (DataRow fila in tabla.Rows)
             {
+                Pelicula peli = new Pelicula();
+                peli.Titulo = (string)fila["titulo"];
+                
+                Lenguaje len = new Lenguaje();
+                len.Descripcion = (string)fila["lenguaje"];
+
+                Sala sala = new Sala();
+                sala.Id_sala = (int)fila["id_sala"];
+                
                 Funcion f = new Funcion();
-                f.Id_funcion = Convert.ToInt32(fila["id_funcion"]);
-                f.Pelicula = fila["titulo"].ToString();
+                f.Id_funcion = Convert.ToInt32(fila["id_funcion"]);               
                 f.Horario = Convert.ToDateTime(fila["horario"]);
                 f.Precio = Convert.ToDecimal(fila["precio"]);
-                f.Lenguaje = fila["lenguaje"].ToString();
-                f.Sala = Convert.ToInt32(fila["id_sala"]);
+                
+                f.Pelicula = peli;
+                f.Lenguaje = len;
+                f.Sala = sala;
+                
                 Lfuncion.Add(f);
             }
             return Lfuncion;
@@ -67,14 +78,26 @@ namespace AplicacionCINE.Datos
             DataTable tabla = HelperSingleton.ObtenerInstancia().ConsultarDB("SP_CONSULTAR_RESERVA");
             foreach (DataRow fila in tabla.Rows)
             {
+                                               
+                Funcion fun = new Funcion();
+                fun.Id_funcion = (int)(fila["id_funcion"]);
+                
+                Cliente cli = new Cliente();
+                cli.Nombre = (string)fila["cliente"];
+                ///cli.Apellido = "";                         <<<<<<< a REVISAR LEO
+               
+                Pelicula peli = new Pelicula();
+                peli.Titulo = (string)fila["titulo"];
+                
                 Reserva r = new Reserva();
-
-                r.Id_reserva = Convert.ToInt32(fila["id_reserva"]);
-                r.id_Funcion = Convert.ToInt32(fila["id_funcion"]);
-                r.cliente = fila["cliente"].ToString();
-                r.pelicula = fila["titulo"].ToString();
+                r.Id_reserva = Convert.ToInt32(fila["id_reserva"]);                         
                 r.FechaReserva = Convert.ToDateTime(fila["fecha"]);
                 r.Cantidad = Convert.ToInt32(fila["cantidad"]);
+                
+                r.Cliente = cli;
+                r.Pelicula = peli;
+                r.Funcion = fun;
+
                 lReserva.Add(r);
             }
             return lReserva;
@@ -86,16 +109,23 @@ namespace AplicacionCINE.Datos
             DataTable tabla = HelperSingleton.ObtenerInstancia().ConsultarDB("SP_CONSULTAR_PELICULA");
             foreach (DataRow fila in tabla.Rows)
             {
-                Pelicula p = new Pelicula();
+                Calificacion cal = new Calificacion();
+                cal.Descripcion = (string)fila["calificacion"];
 
+                Genero gen = new Genero(); 
+                gen.Descripcion = (string)fila["genero"];
+                
+                Pelicula p = new Pelicula();
                 p.Id_pelicula = Convert.ToInt32(fila["id_pelicula"]);
-                p.Titulo = fila["titulo"].ToString();
-                p.Duracion = Convert.ToDecimal(fila["duracion"]);
-                p.calificacion = fila["calificacion"].ToString();
-                p.Apto_toto_publico = Convert.ToBoolean(fila["apto_para_todo_publico"]);
+                p.Titulo = (string)fila["titulo"];
+                p.Duracion = Convert.ToDecimal(fila["duracion"]);               
+                p.Apto_todo_publico = Convert.ToBoolean(fila["apto_para_todo_publico"]);
                 p.Subtitulo = Convert.ToBoolean(fila["subtitulos"]);
                 p.Fecha_estreno = Convert.ToDateTime(fila["fecha_de_estreno"]);
-                p.genero = fila["genero"].ToString();
+                
+                p.Genero = gen;
+                p.Calificacion = cal; 
+                
                 lPeliculas.Add(p);
             }
             return lPeliculas;
@@ -107,7 +137,6 @@ namespace AplicacionCINE.Datos
             return HelperSingleton.ObtenerInstancia().EliminarCliente(id, "SP_OCULTAR_CLIENTE");
         }
      
-
         public DataTable ConsultarDB(string SP)
         {
             return HelperSingleton.ObtenerInstancia().ConsultarDB(SP);

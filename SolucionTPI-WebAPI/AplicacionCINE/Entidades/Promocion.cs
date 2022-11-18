@@ -18,9 +18,10 @@ namespace AplicacionCINE.Entidades
             Descuento = descuento;
             Descripcion = descripcion;
         }
-        public override string ToString()
+
+        public Promocion()
         {
-            return base.ToString();
+
         }
     }
 }

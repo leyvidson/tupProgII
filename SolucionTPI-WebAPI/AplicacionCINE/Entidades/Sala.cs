@@ -16,5 +16,9 @@ namespace AplicacionCINE.Entidades
             Id_sala = id_sala;
             Tipo_sala = tipo_sala;  
         }
+        public Sala()
+        {
+
+        }
     }
 }

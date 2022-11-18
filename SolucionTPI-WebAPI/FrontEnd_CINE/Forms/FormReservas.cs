@@ -30,7 +30,7 @@ namespace FrontEnd_CINE.Forms
             oFabrica = new FabricaServicioImp();    //Agregado nuevo
             oServicio = oFabrica.CrearServicio();   //estas 2 lineas reemplazan a GESTOR                  
             lReservas = new List<Reserva>();
-            cargarDGV();
+            //cargarDGV();
         }
 
         private async void FormReservas_Load(object sender, EventArgs e)
@@ -45,15 +45,15 @@ namespace FrontEnd_CINE.Forms
             var result = await ClientSingleton.GetInstance().GetAsync(URL);
             var lReserva = JsonConvert.DeserializeObject<List<Reserva>>(result);
 
-            foreach (Reserva r in lReservas)
+            foreach (Reserva r in lReserva)
             {
                 dgvReserva.Rows.Add(new object[]
                 {
                         r.Id_reserva,
-                        r.id_Funcion,
-                        r.cliente,
-                        r.pelicula,
-                        r.FechaReserva,
+                        r.Funcion.Id_funcion,
+                        r.Cliente.Nombre,
+                        r.Pelicula.Titulo,
+                        r.FechaReserva.ToString("dd/MM/yyyy"),
                         r.Cantidad
                 });
             }
@@ -64,38 +64,38 @@ namespace FrontEnd_CINE.Forms
             this.Close();
         }
 
-        private void cargarDGV()
-        {
-            DataTable tabla = oServicio.ConsultarDB("SP_CONSULTAR_RESERVA");
-            foreach (DataRow fila in tabla.Rows)
-            {
-                Reserva Reser = new Reserva();
+        //private void cargarDGV()
+        //{
+        //    DataTable tabla = oServicio.ConsultarDB("SP_CONSULTAR_RESERVA");
+        //    foreach (DataRow fila in tabla.Rows)
+        //    {
+        //        Reserva Reser = new Reserva();
 
-                Reser.Id_reserva = (int)(fila["id_reserva"]);
+        //        Reser.Id_reserva = (int)(fila["id_reserva"]);
 
-                //Reser.Funcion.Descripcion = (fila["descripcion"].ToString());  <<<< antess
-                Reser.id_Funcion = (int)fila["id_funcion"];
+        //        //Reser.Funcion.Descripcion = (fila["descripcion"].ToString());  <<<< antess
+        //        Reser.id_Funcion = (int)fila["id_funcion"];
 
-                //Reser.Cliente.Nombre = (string)(fila["nombreC"]);       <<<<<<<< antes
-                Reser.cliente = (string)(fila["Cliente"]);
+        //        //Reser.Cliente.Nombre = (string)(fila["nombreC"]);       <<<<<<<< antes
+        //        Reser.cliente = (string)(fila["Cliente"]);
 
-                //Reser.Pelicula.Titulo = (string)(fila["titulo"]);       <<<<<<< antes
-                Reser.pelicula = (string)(fila["titulo"]);
+        //        //Reser.Pelicula.Titulo = (string)(fila["titulo"]);       <<<<<<< antes
+        //        Reser.pelicula = (string)(fila["titulo"]);
 
-                Reser.FechaReserva = Convert.ToDateTime(fila["fecha"]);
-                Reser.Cantidad = (int)(fila["cantidad"]);
+        //        Reser.FechaReserva = Convert.ToDateTime(fila["fecha"]);
+        //        Reser.Cantidad = (int)(fila["cantidad"]);
 
-                lReservas.Add(Reser);
-            }
-            dgvReserva.Rows.Clear();
-            foreach (Reserva Reser in lReservas)
-            {
-                dgvReserva.Rows.Add(new object[] { Reser.Id_reserva, Reser.id_Funcion,
-                                                  Reser.cliente, Reser.pelicula,
-                                                  Reser.FechaReserva, Reser.Cantidad});
-            }
+        //        lReservas.Add(Reser);
+        //    }
+        //    dgvReserva.Rows.Clear();
+        //    foreach (Reserva Reser in lReservas)
+        //    {
+        //        dgvReserva.Rows.Add(new object[] { Reser.Id_reserva, Reser.id_Funcion,
+        //                                          Reser.cliente, Reser.pelicula,
+        //                                          Reser.FechaReserva, Reser.Cantidad});
+        //    }
 
-        }
+        //}
 
         private void AbrirFormInPanel(object formHijo)
         {

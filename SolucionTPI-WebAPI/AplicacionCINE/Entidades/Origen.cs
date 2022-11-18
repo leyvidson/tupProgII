@@ -22,9 +22,6 @@ namespace AplicacionCINE.Entidades
             Id_origen = 0;
             Descripcion = String.Empty;
         }
-        public override string ToString()
-        {
-            return base.ToString(); 
-        }
+       
     }
 }

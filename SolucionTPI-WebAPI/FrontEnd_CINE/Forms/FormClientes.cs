@@ -59,7 +59,7 @@ namespace FrontEnd_CINE.Forms
                         cliente.Id_cliente,
                         cliente.Nombre,
                         cliente.Apellido,
-                        cliente.Fecha_nacimiento
+                        cliente.Fecha_nacimiento.ToString("dd/MM/yyyy")
                 });
             }
         }

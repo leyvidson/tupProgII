@@ -23,8 +23,7 @@ namespace FrontEnd_CINE.Forms
             InitializeComponent();
             
             oFabrica = new FabricaServicioImp();    //Agregado nuevo
-            oServicio = oFabrica.CrearServicio();
-            
+            oServicio = oFabrica.CrearServicio();            
         }
 
         private bool Valido()
@@ -74,11 +73,6 @@ namespace FrontEnd_CINE.Forms
         private void lblCerrarNuevoCliente_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void panelContenedorNuevoCliente_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

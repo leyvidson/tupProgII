@@ -39,22 +39,18 @@ namespace FrontEnd_CINE.Forms
         private void label11_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void NuevaResrva_Load(object sender, EventArgs e)
-        {
-            
-        }
+        }        
 
         private async void NuevaReserva_Load(object sender, EventArgs e)
         {            
-            CargarCombo(cboCliente, "SP_CONSULTAR_CLIENTES");            
+            CargarCombo(cboCliente, "SP_CLIENTE_COMPLETO");            
             await ObtenerFuncionxReservas();
+            
         }
 
         private async Task ObtenerFuncionxReservas()
         {
-            string URL = "https://localhost:7295/api/CINE/Funciones";
+            string URL = "https://localhost:7295/api/CINE/FuncionParaReservar";
 
             var result = await ClientSingleton.GetInstance().GetAsync(URL);
             var lfuncion = JsonConvert.DeserializeObject<List<Funcion>>(result);
@@ -71,19 +67,22 @@ namespace FrontEnd_CINE.Forms
 
         private void btnGuardarNuevaReserva_Click(object sender, EventArgs e)
         {
-            
-           
+                     
             DataRowView ItemCLient = (DataRowView)cboCliente.SelectedItem;
             Cliente c = new Cliente();
             c.Id_cliente = (int)ItemCLient.Row.ItemArray[0];
             c.Nombre = (string)ItemCLient.Row.ItemArray[1];
-            
-                                
-           
+
+            Pelicula peli = new Pelicula();
+            peli.Id_pelicula = (int)(dgvFuncionReserva.CurrentRow.Cells[1].Value);
+
+            Funcion fun = new Funcion();
+            fun.Id_funcion = (int)dgvFuncionReserva.CurrentRow.Cells[0].Value;
+
             Reserva r = new Reserva();
             r.Cliente = c;
-            //r.Funcion.Id_funcion = null;
-           // r.Pelicula.Id_pelicula = null
+            r.Funcion = fun;
+            r.Pelicula = peli;
             r.Cantidad = (int)nudCantidad.Value;
             r.FechaReserva = dtpFechaReser.Value;   
             
@@ -100,6 +99,11 @@ namespace FrontEnd_CINE.Forms
         private void lblFecha_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvFuncionReserva_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
         }
     }
 }

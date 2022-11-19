@@ -1057,16 +1057,7 @@ HAVING AVG(precio) > (SELECT AVG(precio)
  
  exec sp_ingresos_mensuales_mayor_anio_pasado
  use CINE10
- create proc SP_NUEVO_CLIENTE
- @nombre varchar (30),
- @apellido varchar(30),
- @fec_nac datetime
- as
- begin
- insert into clientes(nombre,apellido,fec_nac) 
- values (@nombre,@apellido,@fec_nac)
- end
- 
+  
  exec SP_CONSULTAR_RESERVA
 
 create proc SP_OCULTAR_CLIENTE  --ESTE LE DA UNA BAJA LOGICA
@@ -1119,6 +1110,23 @@ SET @idOut = @@Identity;
 
 alter Proc SP_FUNCIONxRESERVA --Agregado nuevooo (para llenar la gdvFuncionReserva en nueva reserva)
 as
-select id_funcion, f.id_pelicula, titulo, FORMAT(horario, 'HH/m') horario, precio, id_sala
-
+select id_funcion, f.id_pelicula, titulo, precio, id_sala
 from funciones f join peliculas p on f.id_pelicula = p.id_pelicula
+
+select * from clientes
+
+alter proc SP_NUEVO_CLIENTE  --Deberan ejecutar de nuevo este SP
+ @nombre varchar (30),       --Hace que los clientes se creen con activo en 0 cuando se cargan nuevos.
+ @apellido varchar(30),   
+ @fec_nac datetime 
+ as
+ begin
+ insert into clientes(nombre,apellido,fec_nac,activo) 
+ values (@nombre,@apellido,@fec_nac,0)
+ end
+
+create Proc SP_CLIENTE_COMPLETO  --Se agrega este sp para los clientes que quieran reservar.
+as
+select id_cliente, apellido+', '+nombre cliente
+from clientes
+where activo = 0

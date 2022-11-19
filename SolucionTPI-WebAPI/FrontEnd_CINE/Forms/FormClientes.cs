@@ -122,7 +122,7 @@ namespace FrontEnd_CINE.Forms
         {
             if (!string.IsNullOrEmpty(txtNvoNombre.Text))
             {
-                int id = (dgvClientes.CurrentCell.RowIndex) + 1;
+                int id = (dgvClientes.CurrentCell.RowIndex) + 2;
                 string nomNvo = txtNvoNombre.Text;
                 if (oServicio.EjecutarUpdateCliente(id, nomNvo))
                 {

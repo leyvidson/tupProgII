@@ -177,7 +177,6 @@ namespace AplicacionCINE.Datos
             bool ok = true;
             try
             {   
-
                 SqlCommand Cmd = new SqlCommand("SP_NUEVA_PELICULA", cnn);
                 cnn.Open();
                 Cmd.CommandType = CommandType.StoredProcedure;

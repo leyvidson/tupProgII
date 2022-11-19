@@ -34,8 +34,8 @@ namespace AplicacionCINE.Datos
             {
                 Cliente c = new Cliente();
                 c.Id_cliente = Convert.ToInt32(fila["id_cliente"]);
-                c.Nombre = fila["Nombre"].ToString();
-                c.Apellido = fila["Apellido"].ToString();
+                c.Nombre = (string)fila["Nombre"];
+                c.Apellido = (string)fila["Apellido"];
                 c.Fecha_nacimiento = Convert.ToDateTime(fila["fec_nac"]);
                 Lcliente.Add(c);
             }

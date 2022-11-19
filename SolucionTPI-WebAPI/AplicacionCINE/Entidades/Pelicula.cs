@@ -9,22 +9,16 @@ namespace AplicacionCINE.Entidades
     public class Pelicula
     {
         public int Id_pelicula { get; set; }   //Identity
-        
-        //public string genero { get; set; }              //<<<<<<<<<<<<<<<<
-        //public string calificacion { get; set; }        //<<<<<<<<<<<<<<<<
-        //public string actor_principal { get; set; }     //<<<<<<<<<<<<<<<<
-        
+                  
         public decimal Duracion { get; set; }
         public bool Subtitulo { get; set; }
         public DateTime Fecha_estreno { get; set; }
         public bool Apto_todo_publico { get; set; }
         public string Sinopsis { get; set; }
-        public string Titulo { get; set; } 
-        
-        
+        public string Titulo { get; set; }              
         public Origen Origen { get; set; }
         public Genero Genero { get; set; }
-        public Calificacion Calificacion { get; set; }          //                         
+        public Calificacion Calificacion { get; set; }                                  
         public ActorPrincipal Actor_principal { get; set; }
                
 

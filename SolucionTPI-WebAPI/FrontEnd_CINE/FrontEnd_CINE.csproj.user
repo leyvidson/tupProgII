@@ -31,12 +31,12 @@
     <Compile Update="Forms\NuevoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Reportes\MostrarReporte.cs">
+    <Compile Update="Reporte\Ticket.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Update="Reportes\DataSetPrincipal.xsd">
+    <None Update="Reporte\DataSet1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

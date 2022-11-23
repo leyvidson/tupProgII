@@ -1,9 +1,8 @@
 ﻿using AplicacionCINE.Entidades;
-//using FrontEnd_CINE.Reportes;
 using AplicacionCINE.Servicios;
 using AplicacionCINE.Servicios.Interfaz;
 using FrontEnd_CINE.Http;
-using FrontEnd_CINE.Reportes;
+//using FrontEnd_CINE.Reportes;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -128,13 +127,13 @@ namespace FrontEnd_CINE.Forms
         {
             if (dgvReserva.CurrentCell.ColumnIndex == 6)
             {
-                //aca mandamos a imprimir el ticket
-                MostrarReporte mostrar = new MostrarReporte();
-                mostrar.Id_ticket = dgvReserva.CurrentCell.ColumnIndex;
+                ////aca mandamos a imprimir el ticket
+                //Ticket MostrarTicket = new Ticket();
+                //MostrarTicket.Id_ResTicket = dgvReserva.CurrentRow.Cells[0].RowIndex;
+                ////MostrarTicket.Id_ticket = dgvReserva.CurrentCell.ColumnIndex;
+                //MostrarTicket.ShowDialog();
 
-                Mostrar.ShowDialog();
-
-                //este id se lo tengo q enviar al FormReporte
+                ////este id se lo tengo q enviar al FormReporte
 
             }
         }

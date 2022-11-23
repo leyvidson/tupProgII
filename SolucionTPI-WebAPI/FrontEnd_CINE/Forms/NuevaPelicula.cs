@@ -76,7 +76,7 @@ namespace FrontEnd_CINE.Forms
                 Genero gen = new Genero(IdGen, DescGen);                       //Instanciamos Genero
 
                 string ti = txtTitulo.Text;
-                decimal du = 123.5M;
+                decimal du = 180.5M;
                 DateTime fe = dtpEstreno.Value;
 
                 bool sub = cbSubtitulos.Checked;
@@ -89,6 +89,7 @@ namespace FrontEnd_CINE.Forms
                 if (oServicio.EjecutarInsertPeliculas(p))
                 {
                     MessageBox.Show("Se inserto correctame una nueva Pelicula", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
                 }
                 else
                 {
@@ -96,6 +97,19 @@ namespace FrontEnd_CINE.Forms
                 }
             }
 
+        }
+
+        private void limpiar()
+        {
+            txtTitulo.Text = "";
+            cbCalificacion.SelectedIndex = -1;
+            txtDuracion.Text = "";
+            cbSubtitulos.Checked = false;
+            cbAptoTodoPublico.Checked = false;
+            cbActorPrincipal.SelectedIndex = -1;
+            cbOrigen.SelectedIndex = -1;
+            txtSinopsis.Text = "";
+            cbGenero.SelectedIndex = -1;
         }
 
         private bool Valido()

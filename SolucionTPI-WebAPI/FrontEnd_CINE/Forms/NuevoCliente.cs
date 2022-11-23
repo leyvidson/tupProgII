@@ -62,12 +62,20 @@ namespace FrontEnd_CINE.Forms
                 if (oServicio.EjecutarInsertClientes(cliente))
                 {
                     MessageBox.Show("Se inserto correctame una nuevo Cliente", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpair();
                 }
                 else
                 {
                     MessageBox.Show("No se pudo insertar una nuevo Cliente", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void limpair()
+        {
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            dtpFec_Nac.Value = DateTime.Now;
         }
 
         private void lblCerrarNuevoCliente_Click(object sender, EventArgs e)

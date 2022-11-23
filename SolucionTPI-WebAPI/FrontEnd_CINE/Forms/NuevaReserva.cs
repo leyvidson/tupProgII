@@ -89,11 +89,17 @@ namespace FrontEnd_CINE.Forms
             if(oServicio.EjecutarInsertReserva(r))
             {
                 MessageBox.Show("Se genero una nueva reserva con exito!", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpiar();
             }
             else
             {
                 MessageBox.Show("ERROR! No se pudo generar la reserva", "CONTROL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void limpiar()
+        {
+            cboCliente.SelectedIndex = -1;
         }
 
         private void lblFecha_Click(object sender, EventArgs e)

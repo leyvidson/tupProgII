@@ -35,3 +35,4 @@ C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP
 C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\FrontEnd_CINE\obj\Debug\net6.0-windows\FrontEnd_CINE.genruntimeconfig.cache
 C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\FrontEnd_CINE\obj\Debug\net6.0-windows\ref\FrontEnd_CINE.dll
 C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\FrontEnd_CINE\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\FrontEnd_CINE\obj\Debug\net6.0-windows\PyCINE_01.Reportes.MostrarReporte.resources

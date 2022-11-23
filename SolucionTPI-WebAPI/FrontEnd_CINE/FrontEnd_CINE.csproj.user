@@ -31,5 +31,13 @@
     <Compile Update="Forms\NuevoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Reportes\MostrarReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Reportes\DataSetPrincipal.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
 </Project>

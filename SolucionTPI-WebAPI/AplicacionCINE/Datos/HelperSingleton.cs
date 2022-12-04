@@ -235,6 +235,40 @@ namespace AplicacionCINE.Datos
             }
 
             return aux;
+        } 
+        
+        public bool EjecutarUpdate(string sp, List<Parametro> lst)
+        {
+            bool aux = false;
+
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(sp, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                foreach (Parametro param in lst)
+                {
+                    cmd.Parameters.AddWithValue(param.clave, param.valor);
+                }
+                cmd.BeginExecuteNonQuery();
+                cnn.Close();
+                aux = true;
+            }
+            catch
+            {
+                aux = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return aux;
         }
+
     }
+    
 }

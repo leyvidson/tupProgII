@@ -93,4 +93,3 @@ C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP
 C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\FrontEnd_CINE\bin\Debug\net6.0-windows\zh-HANT\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\FrontEnd_CINE\bin\Debug\net6.0-windows\zh-HANT\Microsoft.ReportViewer.Design.resources.dll
 C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\FrontEnd_CINE\bin\Debug\net6.0-windows\zh-HANT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Cosas del HDD\TODO UTN\Proyectos UTN\1-PROGRAMACION\WEB APIS\ProgII-WepAPi-TP\SolucionTPI-WebAPI\FrontEnd_CINE\obj\Debug\net6.0-windows\FrontEnd_CINE.Reporte.Ticket.resources

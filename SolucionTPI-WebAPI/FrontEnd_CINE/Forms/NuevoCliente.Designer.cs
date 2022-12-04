@@ -55,13 +55,13 @@
             this.panelContenedorNuevoCliente.Controls.Add(this.label2);
             this.panelContenedorNuevoCliente.Controls.Add(this.Nombre);
             this.panelContenedorNuevoCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelContenedorNuevoCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedorNuevoCliente.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelContenedorNuevoCliente.Location = new System.Drawing.Point(0, 0);
             this.panelContenedorNuevoCliente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelContenedorNuevoCliente.Name = "panelContenedorNuevoCliente";
-            this.panelContenedorNuevoCliente.Size = new System.Drawing.Size(516, 458);
+            this.panelContenedorNuevoCliente.Size = new System.Drawing.Size(516, 405);
             this.panelContenedorNuevoCliente.TabIndex = 0;
+            this.panelContenedorNuevoCliente.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedorNuevoCliente_Paint);
             // 
             // lblCerrarNuevoCliente
             // 
@@ -166,6 +166,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "NuevoCliente";
             this.Text = "NuevoCliente";
+            this.Load += new System.EventHandler(this.NuevoCliente_Load);
             this.panelContenedorNuevoCliente.ResumeLayout(false);
             this.panelContenedorNuevoCliente.PerformLayout();
             this.ResumeLayout(false);

@@ -102,6 +102,7 @@ namespace FrontEnd_CINE.Forms
         }
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
+            btnEditar.Visible = false;
             lblCerrarClientes.Visible = false;
             lblClientes.Visible = false;
             dgvClientes.Dispose();

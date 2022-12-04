@@ -31,13 +31,6 @@
     <Compile Update="Forms\NuevoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Reporte\Ticket.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <None Update="Reporte\DataSet1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
+  <ItemGroup />
 </Project>

@@ -82,5 +82,15 @@ namespace FrontEnd_CINE.Forms
         {
             this.Close();
         }
+
+        private void panelContenedorNuevoCliente_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void NuevoCliente_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
